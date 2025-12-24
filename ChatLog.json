@@ -1,0 +1,642 @@
+[
+    {
+        "role": "user",
+        "content": "Mute."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Open youtube."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Close youtube."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Close chrome."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Sleep sleep the system."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Open facebook."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Open instagram."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Close instagram."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Do you like pizza."
+    },
+    {
+        "role": "user",
+        "content": "Open chrome."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Close chrome."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open excel."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "I asked you to open excel from my windows."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Open paint."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open google chrome."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open edge."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "You satisfaction is my top priority."
+    },
+    {
+        "role": "user",
+        "content": "Open chrome."
+    },
+    {
+        "role": "user",
+        "content": "Open chrome."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Open cmd."
+    },
+    {
+        "role": "user",
+        "content": "Open it."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open edge."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open microsoft ed."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open instagram."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "You satisfaction is my top priority feel free to recharge it is anything else."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Chrome."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Close chrome."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "You satisfaction is my top priority."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open paint."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Open paint."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Close paint."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "You satisfaction is my top priority."
+    },
+    {
+        "role": "user",
+        "content": "Open chrome."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open it."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open edge."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Open microsoft edge."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Open excel."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open calculator."
+    },
+    {
+        "role": "user",
+        "content": "Open edge."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Open cursor."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Open notepad."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Sleep."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open steam."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open discord."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open edge."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open vs code."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Open powerpoint."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open word."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Open calculator."
+    },
+    {
+        "role": "user",
+        "content": "How can i help you?"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open instagram."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Open youtube and play christmas song."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Close youtube."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Close chrome."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Open edge."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Close it."
+    },
+    {
+        "role": "user",
+        "content": "Close edge."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open paint."
+    },
+    {
+        "role": "user",
+        "content": "Open."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open edge."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Close it."
+    },
+    {
+        "role": "user",
+        "content": "Close edge."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Close vs code."
+    },
+    {
+        "role": "user",
+        "content": "Close vs code."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Mute."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Volume increase."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Increase volume."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Mute my laptop."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Unmute."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Volume decrease."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Volume decrease 20%."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Volume increase."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Minimise all windows."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "So desktop."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Lock screen."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Lock screen."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Minimise all."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Show desktop?"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Open task manager."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Open task manager."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Open task manager."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Close task manager."
+    },
+    {
+        "role": "user",
+        "content": "Turn on the wi-fi."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Turn on bluetooth."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Bluetooth on."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Toggle bluetooth."
+    }
+]
