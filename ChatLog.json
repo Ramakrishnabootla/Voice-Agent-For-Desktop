@@ -638,5 +638,33 @@
     {
         "role": "user",
         "content": "Toggle bluetooth."
+    },
+    {
+        "role": "user",
+        "content": "Wi-fi on."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Bluetooth."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Toggle bluetooth."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Mungada mama."
     }
 ]

@@ -110,6 +110,18 @@ class ShowImage:
 
 # Unified function for system commands
 def system_command(command):
+    def run_powershell(cmd):
+        try:
+            result = subprocess.run(['powershell', '-Command', cmd], capture_output=True, text=True, check=True)
+            print(f"PowerShell command succeeded: {cmd}")
+            return True
+        except subprocess.CalledProcessError as e:
+            print(f"PowerShell command failed: {cmd}")
+            print(f"Error: {e}")
+            print(f"Output: {e.stdout}")
+            print(f"Error output: {e.stderr}")
+            return False
+
     commands = {
         'mute': lambda: keyboard.press_and_release('volume mute'),
         'unmute': lambda: keyboard.press_and_release('volume mute'),
@@ -127,18 +139,17 @@ def system_command(command):
         'restart': lambda: os.system('shutdown /r /t 1' if platform.system() == 'Windows' else 'reboot'),
         'sleep': lambda: os.system('rundll32.exe powrprof.dll,SetSuspendState 0,1,0' if platform.system() == 'Windows' else 'systemctl suspend'),
         'hibernate': lambda: os.system('shutdown /h' if platform.system() == 'Windows' else 'systemctl hibernate'),
-        'wifi on': lambda: subprocess.run(['powershell', '-Command', "Get-NetAdapter | Where-Object {$_.Name -like '*Wi-Fi*'} | Enable-NetAdapter -Confirm:$false"], shell=True),
-        'wifi off': lambda: subprocess.run(['powershell', '-Command', "Get-NetAdapter | Where-Object {$_.Name -like '*Wi-Fi*'} | Disable-NetAdapter -Confirm:$false"], shell=True),
-        'bluetooth on': lambda: subprocess.run(['powershell', '-Command', "Get-NetAdapter | Where-Object {$_.Name -like '*Bluetooth*'} | Enable-NetAdapter -Confirm:$false"], shell=True),
-        'bluetooth off': lambda: subprocess.run(['powershell', '-Command', "Get-NetAdapter | Where-Object {$_.Name -like '*Bluetooth*'} | Disable-NetAdapter -Confirm:$false"], shell=True),
-        'toggle wifi': lambda: subprocess.run(['powershell', '-Command', "Get-NetAdapter | Where-Object {$_.Name -like '*Wi-Fi*'} | ForEach-Object { if ($_.Status -eq 'Up') { Disable-NetAdapter -Name $_.Name -Confirm:$false } else { Enable-NetAdapter -Name $_.Name -Confirm:$false } }"], shell=True),
-        'toggle bluetooth': lambda: subprocess.run(['powershell', '-Command', "Get-NetAdapter | Where-Object {$_.Name -like '*Bluetooth*'} | ForEach-Object { if ($_.Status -eq 'Up') { Disable-NetAdapter -Name $_.Name -Confirm:$false } else { Enable-NetAdapter -Name $_.Name -Confirm:$false } }"], shell=True),
+        'wifi on': lambda: run_powershell("Get-NetAdapter | Where-Object {$_.Name -like '*Wi-Fi*'} | Enable-NetAdapter -Confirm:$false"),
+        'wifi off': lambda: run_powershell("Get-NetAdapter | Where-Object {$_.Name -like '*Wi-Fi*'} | Disable-NetAdapter -Confirm:$false"),
+        'bluetooth on': lambda: run_powershell("Get-NetAdapter | Where-Object {$_.Name -like '*Bluetooth*'} | Enable-NetAdapter -Confirm:$false"),
+        'bluetooth off': lambda: run_powershell("Get-NetAdapter | Where-Object {$_.Name -like '*Bluetooth*'} | Disable-NetAdapter -Confirm:$false"),
+        'toggle wifi': lambda: run_powershell("Get-NetAdapter | Where-Object {$_.Name -like '*Wi-Fi*'} | ForEach-Object { if ($_.Status -eq 'Up') { Disable-NetAdapter -Name $_.Name -Confirm:$false } else { Enable-NetAdapter -Name $_.Name -Confirm:$false } }"),
+        'toggle bluetooth': lambda: run_powershell("Get-NetAdapter | Where-Object {$_.Name -like '*Bluetooth*'} | ForEach-Object { if ($_.Status -eq 'Up') { Disable-NetAdapter -Name $_.Name -Confirm:$false } else { Enable-NetAdapter -Name $_.Name -Confirm:$false } }"),
     }
 
     if command in commands:
         print(f"Executing system command: {command}")
-        commands[command]()
-        return True
+        return commands[command]()
     return False
 
 # Function to handle app opening
