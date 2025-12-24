@@ -40,7 +40,7 @@ JARVIS-RE-J4E is an advanced AI-powered automation and chatbot system designed t
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Likhithsai2580/JARVIS-RE-J4E.git
+   https://github.com/Ramakrishnabootla/Voice-Agent-For-Desktop.git
    cd JARVIS-RE-J4E
    ```
 
