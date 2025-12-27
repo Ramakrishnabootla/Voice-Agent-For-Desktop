@@ -962,5 +962,69 @@
     {
         "role": "assistant",
         "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to as"
+    },
+    {
+        "role": "user",
+        "content": "What is the current gold price?"
+    },
+    {
+        "role": "assistant",
+        "content": "The current gold prices are:\n\u2022 99.93\n\u2022 22K Gold Price per Gram in United States dollar Today: 99.93\n\u2022 82.80\nPlease verify with official sources for the most accurate current rates"
+    },
+    {
+        "role": "user",
+        "content": "What is the bitcoin price currently?"
+    },
+    {
+        "role": "assistant",
+        "content": "The current Bitcoin price is: $87472.19 USD. Please verify with official sources for the most accurate current rates"
+    },
+    {
+        "role": "user",
+        "content": "What is the current inr exchange rate?"
+    },
+    {
+        "role": "assistant",
+        "content": "The current exchange rate for Indian Rupees (INR) is:\n1 USD = 82.80 INR\nPlease verify with official sources for the most accurate current rate"
+    },
+    {
+        "role": "user",
+        "content": "What is the silver price?"
+    },
+    {
+        "role": "assistant",
+        "content": "The current silver price is:\n$21.45 per ounce\nPlease verify with official sources for the most accurate current rat"
+    },
+    {
+        "role": "user",
+        "content": "What is the latest trending news in india?"
+    },
+    {
+        "role": "assistant",
+        "content": "According to the latest news updates, some of the current trending news in India includes:\n1. **Google News - India - Latest**: Read full articles, watch videos, browse thousands of titles and more on the 'India' topic with Google News.\n2. **India News | Today's latest updates and breaking news from India**: Today's top India news headlines, news on Indian politics, elections, government, business, technology, and Bollywood.\n3. **India News | Today's Top Stories | Reuters**: Reuters.com is your online source for the latest India news stories and current events, ensuring our readers are up to date with any breaking news developments.\n4. **India News | Latest India News Headlines Today and Live Updates**: India News Today: Get latest India news and breaking news from India on Times of India. TOI brings the top news headlines from India on Politics, Elections, Current Affairs, and more.\n5. **India News, Latest Breaking News Headlines from India, Live News**: Latest India News: Breaking News, Politics, Economy, and More... India News: Latest India News, Today's breaking News ...\nPlease note that these are just a few examples, and the latest trending news in India may change rapidly. For the most up-to-date and accurate information, I recommend checking reputable news sources"
+    },
+    {
+        "role": "user",
+        "content": "How many centuries did virat kohli scored in international?"
+    },
+    {
+        "role": "assistant",
+        "content": "Virat Kohli has scored a total of 75 centuries in international cricket, which includes:\n* 27 centuries in Test cricket\n* 46 centuries in One-Day Internationals (ODIs)\n* 1 century in Twenty20 Internationals (T20Is)\nPlease note that these statistics are subject to change as Virat Kohli is still an active player and may continue to score more centuries in the future."
+    },
+    {
+        "role": "user",
+        "content": "Who is the current prime minister of india?"
+    },
+    {
+        "role": "assistant",
+        "content": "The current Prime Minister of India is Narendra Modi. He has been serving as the Prime Minister of India since May 26, 2014, and is currently in his second term, having been re-elected in 2019"
+    },
+    {
+        "role": "user",
+        "content": "Open youtube and play sia song."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
     }
 ]
