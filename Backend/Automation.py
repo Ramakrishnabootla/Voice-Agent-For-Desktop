@@ -14,6 +14,9 @@ from dotenv import load_dotenv
 from random import randint
 from pyautogui import hotkey
 
+# Import backend modules
+from .RSE import GoogleSearch
+
 load_dotenv()
 
 # Constants
@@ -112,14 +115,20 @@ class ShowImage:
 def system_command(command):
     def run_powershell(cmd):
         try:
-            result = subprocess.run(['powershell', '-Command', cmd], capture_output=True, text=True, check=True)
+            print(f"Running PowerShell command: {cmd}")
+            result = subprocess.run(['powershell', '-Command', cmd], capture_output=True, text=True, check=True, shell=True)
             print(f"PowerShell command succeeded: {cmd}")
+            print(f"Output: {result.stdout}")
             return True
         except subprocess.CalledProcessError as e:
             print(f"PowerShell command failed: {cmd}")
             print(f"Error: {e}")
+            print(f"Return code: {e.returncode}")
             print(f"Output: {e.stdout}")
             print(f"Error output: {e.stderr}")
+            return False
+        except Exception as e:
+            print(f"Unexpected error running PowerShell: {e}")
             return False
 
     commands = {
@@ -129,7 +138,7 @@ def system_command(command):
         'volume down': lambda: keyboard.press_and_release('volume down'),
         'volume increase': lambda: keyboard.press_and_release('volume up'),
         'volume decrease': lambda: keyboard.press_and_release('volume down'),
-        'minimize all': lambda: hotkey('win', 'd'),
+        'minimise all': lambda: hotkey('win', 'd'),
         'show desktop': lambda: hotkey('win', 'd'),
         'lock screen': lambda: os.system('rundll32.exe user32.dll,LockWorkStation'),
         'task manager': lambda: hotkey('ctrl', 'shift', 'esc'),
@@ -139,17 +148,39 @@ def system_command(command):
         'restart': lambda: os.system('shutdown /r /t 1' if platform.system() == 'Windows' else 'reboot'),
         'sleep': lambda: os.system('rundll32.exe powrprof.dll,SetSuspendState 0,1,0' if platform.system() == 'Windows' else 'systemctl suspend'),
         'hibernate': lambda: os.system('shutdown /h' if platform.system() == 'Windows' else 'systemctl hibernate'),
-        'wifi on': lambda: run_powershell("Get-NetAdapter | Where-Object {$_.Name -like '*Wi-Fi*'} | Enable-NetAdapter -Confirm:$false"),
-        'wifi off': lambda: run_powershell("Get-NetAdapter | Where-Object {$_.Name -like '*Wi-Fi*'} | Disable-NetAdapter -Confirm:$false"),
-        'bluetooth on': lambda: run_powershell("Get-NetAdapter | Where-Object {$_.Name -like '*Bluetooth*'} | Enable-NetAdapter -Confirm:$false"),
-        'bluetooth off': lambda: run_powershell("Get-NetAdapter | Where-Object {$_.Name -like '*Bluetooth*'} | Disable-NetAdapter -Confirm:$false"),
-        'toggle wifi': lambda: run_powershell("Get-NetAdapter | Where-Object {$_.Name -like '*Wi-Fi*'} | ForEach-Object { if ($_.Status -eq 'Up') { Disable-NetAdapter -Name $_.Name -Confirm:$false } else { Enable-NetAdapter -Name $_.Name -Confirm:$false } }"),
-        'toggle bluetooth': lambda: run_powershell("Get-NetAdapter | Where-Object {$_.Name -like '*Bluetooth*'} | ForEach-Object { if ($_.Status -eq 'Up') { Disable-NetAdapter -Name $_.Name -Confirm:$false } else { Enable-NetAdapter -Name $_.Name -Confirm:$false } }"),
+        'wifi on': lambda: run_powershell("Set-NetAdapter -Name (Get-NetAdapter | Where-Object {$_.Name -like '*Wi-Fi*' -or $_.Name -like '*Wireless*'} | Select-Object -First 1).Name -Enabled $true"),
+        'wifi off': lambda: run_powershell("Set-NetAdapter -Name (Get-NetAdapter | Where-Object {$_.Name -like '*Wi-Fi*' -or $_.Name -like '*Wireless*'} | Select-Object -First 1).Name -Enabled $false"),
+        'wi-fi on': lambda: run_powershell("Set-NetAdapter -Name (Get-NetAdapter | Where-Object {$_.Name -like '*Wi-Fi*' -or $_.Name -like '*Wireless*'} | Select-Object -First 1).Name -Enabled $true"),
+        'wi-fi off': lambda: run_powershell("Set-NetAdapter -Name (Get-NetAdapter | Where-Object {$_.Name -like '*Wi-Fi*' -or $_.Name -like '*Wireless*'} | Select-Object -First 1).Name -Enabled $false"),
+        'bluetooth on': lambda: run_powershell("Get-PnpDevice | Where-Object {$_.Class -eq 'Bluetooth'} | Enable-PnpDevice -Confirm:$false"),
+        'bluetooth off': lambda: run_powershell("Get-PnpDevice | Where-Object {$_.Class -eq 'Bluetooth'} | Disable-PnpDevice -Confirm:$false"),
+        'toggle bluetooth': lambda: run_powershell("Get-PnpDevice | Where-Object {$_.Class -eq 'Bluetooth'} | ForEach-Object { if ($_.Status -eq 'OK') { Disable-PnpDevice -InstanceId $_.InstanceId -Confirm:$false } else { Enable-PnpDevice -InstanceId $_.InstanceId -Confirm:$false } }"),
+        'toggle wifi': lambda: run_powershell("$adapter = Get-NetAdapter | Where-Object {$_.Name -like '*Wi-Fi*' -or $_.Name -like '*Wireless*'} | Select-Object -First 1; if ($adapter.Status -eq 'Up') { Set-NetAdapter -Name $adapter.Name -Enabled $false } else { Set-NetAdapter -Name $adapter.Name -Enabled $true }"),
+        'toggle wi-fi': lambda: run_powershell("$adapter = Get-NetAdapter | Where-Object {$_.Name -like '*Wi-Fi*' -or $_.Name -like '*Wireless*'} | Select-Object -First 1; if ($adapter.Status -eq 'Up') { Set-NetAdapter -Name $adapter.Name -Enabled $false } else { Set-NetAdapter -Name $adapter.Name -Enabled $true }"),
     }
 
-    if command in commands:
-        print(f"Executing system command: {command}")
-        return commands[command]()
+    # Case-insensitive command matching with variations
+    command_lower = command.lower().strip()
+    
+    # Handle common variations
+    command_variations = {
+        'turn off wi-fi': 'wi-fi off',
+        'turn on wi-fi': 'wi-fi on',
+        'turn off wifi': 'wifi off',
+        'turn on wifi': 'wifi on',
+        'turn off bluetooth': 'bluetooth off',
+        'turn on bluetooth': 'bluetooth on',
+    }
+    
+    if command_lower in command_variations:
+        command_lower = command_variations[command_lower]
+    
+    for cmd_key in commands:
+        if cmd_key.lower() == command_lower:
+            print(f"Executing system command: {cmd_key}")
+            return commands[cmd_key]()
+    
+    print(f"Command '{command}' not found in system commands")
     return False
 
 # Function to handle app opening
@@ -227,6 +258,12 @@ async def execute_commands(commands):
         elif command.startswith('system '):
             cmd = command.removeprefix('system ').strip('() ').strip()
             system_command(cmd)
+        elif command.startswith('google search '):
+            query = command.removeprefix('google search ')
+            print(f"Performing Google search for: {query}")
+            search_results = GoogleSearch(query)
+            print(f"Search completed, results length: {len(search_results)}")
+            # The search results will be handled by the main execution flow
         else:
             print(f'No function found for {command}')
 

@@ -666,5 +666,301 @@
     {
         "role": "user",
         "content": "Mungada mama."
+    },
+    {
+        "role": "user",
+        "content": "Hello jarvis."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Mute my laptop."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "I need my laptop."
+    },
+    {
+        "role": "user",
+        "content": "Unmute my laptop."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Make my laptop into sleep mode."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Blackmail laptop."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Unmute."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Lock my laptop."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Lock screen."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Shutdown."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Minimise all."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Show desktop?"
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Minimise all."
+    },
+    {
+        "role": "user",
+        "content": "Minimise all."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Minimise all."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Wi-fi on."
+    },
+    {
+        "role": "user",
+        "content": "Pagal wi-fi."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Towel bluetooth."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Toggle bluetooth."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Pagal wi-fi."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Toggle wi-fi."
+    },
+    {
+        "role": "user",
+        "content": "Bluetooth on."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Bluetooth off."
+    },
+    {
+        "role": "user",
+        "content": "Bluetooth of."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Wi-fi on."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Wi-fi off."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Wi-fi on."
+    },
+    {
+        "role": "user",
+        "content": "Wi-fi on."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Bluetooth on."
+    },
+    {
+        "role": "user",
+        "content": "Bluetooth off."
+    },
+    {
+        "role": "user",
+        "content": "Bluetooth off."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Wi-fi off."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Bluetooth off."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "Bluetooth off."
+    },
+    {
+        "role": "assistant",
+        "content": "Your satisfaction is my top priority; feel free to reach out if there's anything else I can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Turn on bluetooth."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask."
+    },
+    {
+        "role": "user",
+        "content": "what is the current gold price"
+    },
+    {
+        "role": "user",
+        "content": "search for python tutorials"
+    },
+    {
+        "role": "user",
+        "content": "what is the current gold price"
+    },
+    {
+        "role": "user",
+        "content": "google search for machine learning"
+    },
+    {
+        "role": "user",
+        "content": "What is the current gold price?"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask"
+    },
+    {
+        "role": "user",
+        "content": "What is the current gold price?"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to ask"
+    },
+    {
+        "role": "user",
+        "content": "What is the current inr value?"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm at your service for any additional questions or support you may need\u2014don't hesitate to as"
     }
 ]

@@ -15,7 +15,7 @@ from threading import Lock
 from Backend.Extra import AnswerModifier, QueryModifier, LoadMessages, GuiMessagesConverter
 from Backend.Automation import run_automation as Automation
 from Backend.Automation import PROFESSIONAL_RESPONSES as professional_responses
-from Backend.RSE import RealTimeChatBotAI
+from Backend.RSE import RealTimeChatBotAI, GoogleSearch
 from Backend.Chatbot import ChatBotAI
 from Backend.AutoModel import Model
 from Backend.ChatGpt import ChatBotAI as ChatGptAI
@@ -96,6 +96,24 @@ def MainExecution(Query: str):
             print('Video Stopped')
             python_call_to_stop_video()
             WEBCAM = False
+        elif 'google search' in Decision:
+            print("Google search query")
+            # Extract the search topic from the decision
+            if 'google search (' in Decision and ')' in Decision:
+                topic = Decision.split('google search (')[1].split(')')[0]
+            else:
+                topic = Query  # fallback to original query
+            print(f"Searching for: {topic}")
+            state = 'Searching...'
+            search_results = GoogleSearch(topic)
+            Answer = AnswerModifier(search_results)
+            print(f"Search Answer: {Answer}")
+            state = 'Answering...'
+            TTS(Answer)
+            print("Search TTS called")
+            messages.append({'role': 'assistant', 'content': Answer})
+            with open('ChatLog.json', 'w') as f:
+                json.dump(messages, f, indent=4)
         else:
             print("Automation query")
             state = 'Automation...'
