@@ -2,8 +2,15 @@
 from groq import Groq
 from json import load, dump
 import datetime
+import logging
 from dotenv import load_dotenv
 from os import environ
+
+# Import the AI Client Manager
+from .AIClientManager import get_ai_response
+
+# Configure logging
+logger = logging.getLogger(__name__)
 
 # Load environment variables from .env file
 load_dotenv()
@@ -75,38 +82,33 @@ def AnswerModifier(answer):
 
 def ChatBotAI(prompt):
     """
-    Handles the chatbot's logic, sending the prompt to the Groq API and updating the chat history.
+    Handles the chatbot's logic using AI Client Manager with automatic fallback.
     """
     try:
         # Load existing chat log
         with open('ChatLog.json', 'r') as f:
             messages = load(f)
 
-        # Send request to the Groq API with real-time information
-        completion = client.chat.completions.create(
+        # Prepare messages for AI client manager
+        system_info = {'role': 'system', 'content': Information()}
+        all_messages = SystemChatBot + [system_info] + messages
+
+        # Use AI Client Manager with automatic fallback
+        answer = get_ai_response(
+            messages=all_messages,
             model='llama-3.3-70b-versatile',
-            messages=SystemChatBot + [{'role': 'system', 'content': Information()}] + messages,
-            max_tokens=2048,
             temperature=0.3,
-            top_p=1,
+            max_tokens=2048,
             stream=True
         )
-
-        # Collect the response
-        answer = ''
-        for chunk in completion:
-            if chunk.choices[0].delta.content:
-                answer += chunk.choices[0].delta.content
 
         # Return the modified answer
         return AnswerModifier(answer)
 
     except Exception as e:
-        # Log the error and reset the chat log if an error occurs
-        print(f"Error: {e}")
-        with open('ChatLog.json', 'w') as f:
-            dump([], f, indent=4)
-        return ChatBotAI(prompt)  # Retry after resetting the log
+        # Log the error and provide fallback response
+        logger.error(f"All AI services failed in ChatBotAI: {e}")
+        return "I'm sorry, all AI services are currently unavailable. Please try again later."
 
 if __name__ == '__main__':
     while True:

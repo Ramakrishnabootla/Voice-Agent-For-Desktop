@@ -14,7 +14,6 @@ from threading import Lock
 # Import backend modules
 from Backend.Extra import AnswerModifier, QueryModifier, LoadMessages, GuiMessagesConverter
 from Backend.Automation import run_automation as Automation
-from Backend.Automation import PROFESSIONAL_RESPONSES as professional_responses
 from Backend.RSE import RealTimeChatBotAI, GoogleSearch
 from Backend.Chatbot import ChatBotAI
 from Backend.AutoModel import Model
@@ -117,8 +116,7 @@ def MainExecution(Query: str):
         else:
             print("Automation query")
             state = 'Automation...'
-            asyncio.run(Automation(Decision))
-            response = choice(professional_responses)
+            response = asyncio.run(Automation(Decision))
             print(f"Automation response: {response}")
             state = 'Answering...'
             messages.append({'role': 'assistant', 'content': response})

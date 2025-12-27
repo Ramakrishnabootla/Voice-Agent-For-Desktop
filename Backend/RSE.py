@@ -1,19 +1,26 @@
 import json
 import re
 import requests
+import logging
 from dotenv import load_dotenv
 from os import environ
 from ddgs import DDGS
 from groq import Groq
 import google.genai as genai
 
+# Import the AI Client Manager
+from .AIClientManager import get_ai_response
+
+# Configure logging
+logger = logging.getLogger(__name__)
+
 # Load environment variables
 load_dotenv()
 
-# Configure Gemini API
+# Configure Gemini API (fallback)
 GEMINI_API_KEY = environ.get('GeminiAPI', environ.get('CohereAPI', ''))
 
-# Globals
+# Keep legacy client for backward compatibility (but use AI manager primarily)
 client = Groq(api_key=environ['GroqAPI'])
 default_messages = [{'role': 'user', 'content': f"Hello {environ['AssistantName']}, How are you?"}, 
                     {'role': 'assistant', 'content': f"Welcome Back {environ['NickName']}, I am doing well. How may I assist you?"}]
@@ -167,30 +174,28 @@ def RealTimeChatBotAI(prompt: str) -> str:
     system_chat = [{'role': 'system', 'content': f"Hello, I am {environ['NickName']}, You are a very accurate and advanced AI chatbot named {environ['AssistantName']} which has real-time up-to-date information from the internet.\n*** Just answer the question from the provided data in a professional way. ***"}]
     system_chat.append(system_message)
 
-    # Send request to Groq API
+    # Prepare messages for AI client manager
+    all_messages = system_chat + messages
+
+    # Use AI Client Manager with automatic fallback
     try:
-        completion = client.chat.completions.create(
-            model='llama-3.3-70b-versatile', 
-            messages=system_chat + messages, 
-            temperature=0.3, 
-            max_tokens=2048, 
-            top_p=1, 
-            stream=True, 
-            stop=None
+        answer = get_ai_response(
+            messages=all_messages,
+            model='llama-3.3-70b-versatile',
+            temperature=0.3,
+            max_tokens=2048,
+            stream=True
         )
-        
-        # Process the AI response in chunks
-        answer = ''
-        for chunk in completion:
-            if chunk.choices[0].delta.content:
-                answer += chunk.choices[0].delta.content
+
+        # Clean up the response
         answer = answer.strip().replace('</s>', '')
-        answer = answer[0:answer.find('[')]
-        
+        answer = answer[0:answer.find('[')] if '[' in answer else answer
+
         return AnswerModifier(answer)
-    
+
     except Exception as e:
-        return f"An error occurred: {str(e)}"
+        logger.error(f"All AI services failed in RealTimeChatBotAI: {e}")
+        return f"I'm sorry, all AI services are currently unavailable. Please try again later."
 
 if __name__ == '__main__':
     while True:

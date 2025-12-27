@@ -16,6 +16,7 @@ from pyautogui import hotkey
 
 # Import backend modules
 from .RSE import GoogleSearch
+from .AIClientManager import get_ai_response
 
 load_dotenv()
 
@@ -70,17 +71,21 @@ def open_notepad(file):
     subprocess.Popen([editor, file])
 
 # Function for AI-powered content generation
-def content_writer_ai(prompt, client):
+def content_writer_ai(prompt):
     messages = [{'role': 'user', 'content': prompt}]
     system_chat_bot = [{'role': 'system', 'content': "You're a content writer. You create letters, codes, essays, etc."}]
-    completion = client.chat.completions.create(
-        model='mixtral-8x7b-32768', 
-        messages=system_chat_bot + messages, 
-        max_tokens=2048, temperature=0.7, top_p=1, stream=True
+
+    # Use AI Client Manager with automatic fallback
+    answer = get_ai_response(
+        messages=system_chat_bot + messages,
+        model='mixtral-8x7b-32768',
+        max_tokens=2048,
+        temperature=0.7,
+        top_p=1,
+        stream=True
     )
 
-    answer = ''.join([chunk.choices[0].delta.content for chunk in completion if chunk.choices[0].delta.content]).replace('</s>', '')
-    return answer
+    return answer.replace('</s>', '')
 
 # Function for generating images using Hugging Face API
 async def query_image_generation(payload):
@@ -236,38 +241,65 @@ def play_youtube(query):
 
 # Asynchronous task executor
 async def execute_commands(commands):
+    results = []
     for command in commands:
         if command.startswith('open '):
             app_name = command.removeprefix('open ')
             print(f"Trying to open app: {app_name}")
-            if not open_app(app_name):
+            if open_app(app_name):
+                results.append(f"Opened {app_name}")
+            else:
                 print(f"App '{app_name}' not found, trying as website: https://{app_name}.com")
                 # If not an app, try opening as website
                 webopen(f'https://{app_name}.com')
                 opened_websites.append(app_name.lower())
+                results.append(f"Opened {app_name} website")
         elif command.startswith('close '):
             app_name = command.removeprefix('close ')
             print(f"Trying to close app: {app_name}")
             if app_name.lower() in opened_websites:
                 opened_websites.remove(app_name.lower())
-                print(f"Closed website: {app_name} (please close the browser tab manually)")
-            elif not close_app(app_name):
-                print(f"Failed to close app: {app_name}")
+                results.append(f"Closed {app_name} website (please close the browser tab manually)")
+            elif close_app(app_name):
+                results.append(f"Closed {app_name}")
+            else:
+                results.append(f"Could not close {app_name}")
         elif command.startswith('play '):
-            play_youtube(command.removeprefix('play '))
+            query = command.removeprefix('play ')
+            play_youtube(query)
+            results.append(f"Playing {query} on YouTube")
         elif command.startswith('system '):
             cmd = command.removeprefix('system ').strip('() ').strip()
-            system_command(cmd)
+            if system_command(cmd):
+                results.append(f"Executed system command: {cmd}")
+            else:
+                results.append(f"Failed to execute: {cmd}")
         elif command.startswith('google search '):
             query = command.removeprefix('google search ')
             print(f"Performing Google search for: {query}")
             search_results = GoogleSearch(query)
             print(f"Search completed, results length: {len(search_results)}")
+            results.append(f"Searched for: {query}")
             # The search results will be handled by the main execution flow
         else:
             print(f'No function found for {command}')
+            results.append(f"Unknown command: {command}")
+
+    return results
 
 # Function to run automation commands
 async def run_automation(commands):
-    await execute_commands(commands)
-    return random.choice(PROFESSIONAL_RESPONSES)
+    results = await execute_commands(commands)
+
+    # Create a concise response based on the actions performed
+    if not results:
+        return "No actions were performed."
+
+    if len(results) == 1:
+        response = f"{results[0]}. Anything else I can help you with?"
+    else:
+        # Multiple actions
+        action_list = ", ".join(results[:-1]) + f" and {results[-1]}" if len(results) > 1 else results[0]
+        response = f"Completed: {action_list}. Anything else I can help you with?"
+
+    return response
