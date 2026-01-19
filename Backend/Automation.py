@@ -27,7 +27,7 @@ PROFESSIONAL_RESPONSES = [
     "I'm at your service for any additional questions or support you may need—don't hesitate to ask.",
     # Add more responses as needed...
 ]
-
+    
 # App aliases for better matching
 app_aliases = {
     "excel": "excel",
@@ -56,7 +56,7 @@ app_aliases = {
     "illustrator": "illustrator",
     "discord": "discord",
     "steam": "steam",
-    # Add more as needed
+    # Add more as needed 
 }
 
 # Track opened websites

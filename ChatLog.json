@@ -58,5 +58,201 @@
     {
         "role": "assistant",
         "content": "According to the provided data, the current USD to INR exchange rate is:\n1 USD = 90.03 INR\nAlternatively, other exchange rates mentioned are:\n1 USD = 10.3642 INR (this seems to be an incorrect exchange rate, as it would imply 1 INR = 0.0965 USD)\n1 USD = 10.375 INR (this also seems to be an incorrect exchange rate)\nPlease note that these exchange rates may not be up-to-date, and I recommend verifying with official sources for the most accurate current rates."
+    },
+    {
+        "role": "user",
+        "content": "Hey jarvis how are you?"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm functioning properly, thank you for asking. I'm ready to assist you with any questions or tasks you may have."
+    },
+    {
+        "role": "user",
+        "content": "Okay can you open youtube?"
+    },
+    {
+        "role": "assistant",
+        "content": "Opened youtube website. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "I want to listen to siyara song on youtube."
+    },
+    {
+        "role": "assistant",
+        "content": "Playing siyara song on YouTube. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Lock my screen."
+    },
+    {
+        "role": "assistant",
+        "content": "Failed to execute: lock screen. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Mute my laptop."
+    },
+    {
+        "role": "assistant",
+        "content": "Failed to execute: mute. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Unmute."
+    },
+    {
+        "role": "assistant",
+        "content": "Failed to execute: unmute. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Volume decrease."
+    },
+    {
+        "role": "assistant",
+        "content": "Failed to execute: volume decrease. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Volume volume."
+    },
+    {
+        "role": "assistant",
+        "content": "Failed to execute: volume. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Volume increase."
+    },
+    {
+        "role": "assistant",
+        "content": "Failed to execute: volume increase. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open instagram."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened instagram website. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open instagram website anything else."
+    },
+    {
+        "role": "user",
+        "content": "Open youtube."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened youtube website. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open youtube website anything else can help you with."
+    },
+    {
+        "role": "user",
+        "content": "Comments."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened youtube website. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open youtube."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened youtube website. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open."
+    },
+    {
+        "role": "user",
+        "content": "Open youtube and play a song."
+    },
+    {
+        "role": "assistant",
+        "content": "Completed: Opened youtube website and Playing song on YouTube. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Update."
+    },
+    {
+        "role": "assistant",
+        "content": "According to the provided data, there are several types of updates mentioned:\n1. Update.mozilla.org - for Mozilla software updates\n2. Update (SQL) - a statement for changing database records\n3. Windows Update - a built-in service in Microsoft Windows operating systems\n4. Android updates - can be checked and updated in the Settings app\n5. Update definition - to bring something up to date\nPlease let me know which type of update you are referring to."
+    },
+    {
+        "role": "user",
+        "content": "Open spotify."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened spotify website. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open excel."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened excel. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open youtube and play yara song."
+    },
+    {
+        "role": "assistant",
+        "content": "Completed: Opened youtube website and Playing yara song on YouTube. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Can you pause the song?"
+    },
+    {
+        "role": "assistant",
+        "content": "Failed to execute: pause. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Close youtube."
+    },
+    {
+        "role": "assistant",
+        "content": "Closed youtube website (please close the browser tab manually). Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Play song on spotify."
+    },
+    {
+        "role": "assistant",
+        "content": "Playing (song name) on YouTube. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Hey shivangive."
+    },
+    {
+        "role": "assistant",
+        "content": "I'm JARVIS, not Shivangi. How can I help you?"
+    },
+    {
+        "role": "user",
+        "content": "Play shivangive."
+    },
+    {
+        "role": "assistant",
+        "content": "Playing shivangive on YouTube. Anything else I can help you with?"
     }
 ]
