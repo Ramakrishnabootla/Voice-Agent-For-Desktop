@@ -466,5 +466,213 @@
     {
         "role": "user",
         "content": "Hey jarvis can you shut down my laptop?"
+    },
+    {
+        "role": "user",
+        "content": "read my emails"
+    },
+    {
+        "role": "user",
+        "content": "check my inbox"
+    },
+    {
+        "role": "user",
+        "content": "show me recent emails"
+    },
+    {
+        "role": "user",
+        "content": "search wikipedia for python"
+    },
+    {
+        "role": "user",
+        "content": "what is my location"
+    },
+    {
+        "role": "user",
+        "content": "tell me the weather"
+    },
+    {
+        "role": "user",
+        "content": "check battery status"
+    },
+    {
+        "role": "user",
+        "content": "read my emails"
+    },
+    {
+        "role": "user",
+        "content": "shutdown my laptop"
+    },
+    {
+        "role": "user",
+        "content": "What's my last recent email?"
+    },
+    {
+        "role": "assistant",
+        "content": "According to the provided data, to find your last recent email, you can:\n1. Check the recent activity of your Gmail account\n2. Use the search function in Outlook to find recently opened emails\n3. Filter messages in your email box to quickly find the messages you want\nPlease note that I'm a text-based AI and do not have direct access to your email account. You may need to log in to your email account to check your recent emails."
+    },
+    {
+        "role": "user",
+        "content": "what's my last recent email"
+    },
+    {
+        "role": "user",
+        "content": "what's my last recent email"
+    },
+    {
+        "role": "user",
+        "content": "what's my last recent email"
+    },
+    {
+        "role": "user",
+        "content": "read my emails"
+    },
+    {
+        "role": "user",
+        "content": "check my email"
+    },
+    {
+        "role": "user",
+        "content": "show me my recent emails"
+    },
+    {
+        "role": "user",
+        "content": "what are my latest emails"
+    },
+    {
+        "role": "user",
+        "content": "tell me about my emails"
+    },
+    {
+        "role": "user",
+        "content": "What's my last recent email?"
+    },
+    {
+        "role": "user",
+        "content": "Hey jarvis."
+    },
+    {
+        "role": "assistant",
+        "content": "Hello, how can I help you?"
+    },
+    {
+        "role": "user",
+        "content": "Hello how can i help you what is my last recent email?"
+    },
+    {
+        "role": "user",
+        "content": "What is my last recent email?"
+    },
+    {
+        "role": "user",
+        "content": "Watchmen recent email."
+    },
+    {
+        "role": "user",
+        "content": "How can i help you?"
+    },
+    {
+        "role": "user",
+        "content": "Hey jarvis what's my last recent email?"
+    },
+    {
+        "role": "user",
+        "content": "Hey jarvis."
+    },
+    {
+        "role": "assistant",
+        "content": "Hello, how can I help you?"
+    },
+    {
+        "role": "user",
+        "content": "What's my last recent email?"
+    },
+    {
+        "role": "assistant",
+        "content": "I found 2 recent email(s):\n\nEmail 1:\nFrom: \"Mermaid\" <hello@mermaidchart.com>\nSubject: What happens when your diagrams work better\nPreview: **It\u2019s not just about diagrams.\u00a0**  ==================================    **It\u2019s about getting your ...\n\nEmail 2:\nFrom: \"Facebook\" <notification@priority.facebookmail.com>\nSubject: Update for you: 1 new notification\nPreview: ========================================  View your notifications  https://www.facebook.com/nd/?noti...\n\n"
+    },
+    {
+        "role": "user",
+        "content": "Watch my last recent email."
+    },
+    {
+        "role": "assistant",
+        "content": "I found 2 recent email(s):\n\nEmail 1:\nFrom: \"Mermaid\" <hello@mermaidchart.com>\nSubject: What happens when your diagrams work better\nPreview: **It\u2019s not just about diagrams.\u00a0**  ==================================    **It\u2019s about getting your ...\n\nEmail 2:\nFrom: \"Facebook\" <notification@priority.facebookmail.com>\nSubject: Update for you: 1 new notification\nPreview: ========================================  View your notifications  https://www.facebook.com/nd/?noti...\n\n"
+    },
+    {
+        "role": "user",
+        "content": "Hey jarvis."
+    },
+    {
+        "role": "assistant",
+        "content": "Hello, how can I help you?"
+    },
+    {
+        "role": "user",
+        "content": "what's my last recent email"
+    },
+    {
+        "role": "user",
+        "content": "read my emails"
+    },
+    {
+        "role": "user",
+        "content": "how are you"
+    },
+    {
+        "role": "user",
+        "content": "tell me a joke"
+    },
+    {
+        "role": "user",
+        "content": "open chrome"
+    },
+    {
+        "role": "user",
+        "content": "check battery status"
+    },
+    {
+        "role": "user",
+        "content": "what is the weather"
+    },
+    {
+        "role": "user",
+        "content": "search wikipedia for python"
+    },
+    {
+        "role": "user",
+        "content": "google search for news"
+    },
+    {
+        "role": "user",
+        "content": "play music"
+    },
+    {
+        "role": "user",
+        "content": "Hey jarvis."
+    },
+    {
+        "role": "assistant",
+        "content": "Hello, how can I help you?"
+    },
+    {
+        "role": "user",
+        "content": "How can i help you?"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm here to assist you with any questions or tasks you may have."
+    },
+    {
+        "role": "user",
+        "content": "What is my recent email?"
+    },
+    {
+        "role": "user",
+        "content": "Exit jarvis."
+    },
+    {
+        "role": "assistant",
+        "content": "Failed to execute: exit. Anything else I can help you with?"
     }
 ]

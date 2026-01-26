@@ -20,7 +20,7 @@ from Backend.AutoModel import Model
 from Backend.ChatGpt import ChatBotAI as ChatGptAI
 from Backend.TTS import TTS
 from Backend.Email import send_email, set_receiver_email, set_email_subject, set_email_body, process_email_voice_input
-from Backend.SystemCommands import check_battery_status, shutdown_laptop, restart_laptop
+from Backend.SystemCommands import check_battery_status, shutdown_laptop, restart_laptop, read_recent_emails, create_gui, get_location_info, get_weather
 
 # Load environment variables
 load_dotenv()
@@ -147,6 +147,38 @@ def MainExecution(Query: str):
             restart_thread.start()
             working.append(restart_thread)
             print("Restart initiated")
+        elif 'read emails' in Decision:
+            print("Read emails query")
+            state = 'Reading Emails...'
+            # Run email reading in a separate thread
+            email_read_thread = threading.Thread(target=lambda: messages.append({'role': 'assistant', 'content': read_recent_emails()}))
+            email_read_thread.start()
+            working.append(email_read_thread)
+            print("Email reading initiated")
+        elif 'create gui' in Decision:
+            print("Create GUI query")
+            state = 'Opening GUI...'
+            # Run GUI in a separate thread
+            gui_thread = threading.Thread(target=create_gui)
+            gui_thread.start()
+            working.append(gui_thread)
+            print("GUI creation initiated")
+        elif 'get location info' in Decision:
+            print("Get location info query")
+            state = 'Getting Location...'
+            # Run location info in a separate thread
+            location_thread = threading.Thread(target=lambda: messages.append({'role': 'assistant', 'content': get_location_info()}))
+            location_thread.start()
+            working.append(location_thread)
+            print("Location info initiated")
+        elif 'get weather' in Decision:
+            print("Get weather query")
+            state = 'Getting Weather...'
+            # Run weather info in a separate thread
+            weather_thread = threading.Thread(target=lambda: messages.append({'role': 'assistant', 'content': get_weather()}))
+            weather_thread.start()
+            working.append(weather_thread)
+            print("Weather info initiated")
         else:
             print("Automation query")
             state = 'Automation...'

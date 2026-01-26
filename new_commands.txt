@@ -67,133 +67,139 @@ Restarts the user's laptop after confirmation, similar to shutdown but for reboo
 ### Notes
 - Mirrors shutdown logic but uses restart flag.
 - Ensures user is aware of the action.
+{
+   ## 4. Create GUI (`create_gui`)
 
-## 4. Create GUI (`create_gui`)
+   ### Purpose
+   Opens a GUI for searching Wikipedia, allowing users to input topics and view summaries.
 
-### Purpose
-Opens a GUI for searching Wikipedia, allowing users to input topics and view summaries.
+   ### Logic Flow
+   1. **Import and Setup**: Uses `tkinter` for GUI, `wikipedia` for data, and custom functions for speech.
+   2. **GUI Elements**:
+      - Input field for topic.
+      - Button to search.
+      - Text box to display results.
+   3. **Search Process**:
+      - Retrieves topic from input.
+      - Fetches Wikipedia summary (2 sentences).
+      - Processes text (removes links, etc.).
+      - Displays in text box and speaks the summary.
+   4. **User Interaction**: Real-time updates via threading for speech.
 
-### Logic Flow
-1. **Import and Setup**: Uses `tkinter` for GUI, `wikipedia` for data, and custom functions for speech.
-2. **GUI Elements**:
-   - Input field for topic.
-   - Button to search.
-   - Text box to display results.
-3. **Search Process**:
-   - Retrieves topic from input.
-   - Fetches Wikipedia summary (2 sentences).
-   - Processes text (removes links, etc.).
-   - Displays in text box and speaks the summary.
-4. **User Interaction**: Real-time updates via threading for speech.
+   ### Dependencies
+   - `tkinter` for GUI.
+   - `wikipedia` for content.
+   - `threading` for concurrent speech.
+   - Custom `speak_and_play` for audio.
 
-### Dependencies
-- `tkinter` for GUI.
-- `wikipedia` for content.
-- `threading` for concurrent speech.
-- Custom `speak_and_play` for audio.
+   ### Notes
+   - Provides a visual interface for information retrieval.
+   - Handles errors if topic not found.
+}
+{
+   ## 5. Get Location Info (`get_location_info`)
 
-### Notes
-- Provides a visual interface for information retrieval.
-- Handles errors if topic not found.
+   ### Purpose
+   Retrieves and reports the user's current location and calculates distance to a specified destination.
 
-## 5. Get Location Info (`get_location_info`)
+   ### Logic Flow
+   1. **Prompt for Destination**: Speaks and asks for destination input via text.
+   2. **Geocode Destination**: Uses `Nominatim` to get coordinates and address of the destination.
+   3. **Get Current Location**: Uses `geocoder.ip('me')` for user's IP-based location.
+   4. **Calculate Distance**: Uses `great_circle` from `geopy` to compute distance in km.
+   5. **Feedback**: Speaks and prints current location, destination, and distance.
 
-### Purpose
-Retrieves and reports the user's current location and calculates distance to a specified destination.
+   ### Dependencies
+   - `geopy` for geocoding and distance.
+   - `geocoder` for IP location.
+   - `requests` for API calls.
+   - `print_slow_and_speak` for output.
 
-### Logic Flow
-1. **Prompt for Destination**: Speaks and asks for destination input via text.
-2. **Geocode Destination**: Uses `Nominatim` to get coordinates and address of the destination.
-3. **Get Current Location**: Uses `geocoder.ip('me')` for user's IP-based location.
-4. **Calculate Distance**: Uses `great_circle` from `geopy` to compute distance in km.
-5. **Feedback**: Speaks and prints current location, destination, and distance.
+   ### Notes
+   - Relies on internet for accurate geocoding.
+   - Handles errors like location not found.
+}
+{
+   ## 6. Get Weather (`get_weather`)
 
-### Dependencies
-- `geopy` for geocoding and distance.
-- `geocoder` for IP location.
-- `requests` for API calls.
-- `print_slow_and_speak` for output.
+   ### Purpose
+   Fetches and reports current weather for the user's location or a specified city.
 
-### Notes
-- Relies on internet for accurate geocoding.
-- Handles errors like location not found.
+   ### Logic Flow
+   1. **Get Location**: Calls `get_current_location()` to determine city via IP.
+   2. **Prompt for Input**: Asks if user wants to enter a city or use current location.
+   3. **API Call**: Uses OpenWeatherMap API with city name to get weather data.
+   4. **Parse Data**: Extracts description, temperature, etc.
+   5. **Feedback**: Speaks and prints weather report.
 
-## 6. Get Weather (`get_weather`)
+   ### Dependencies
+   - `requests` for API.
+   - `os` for environment variables (API key).
+   - `print_slow_and_speak`.
 
-### Purpose
-Fetches and reports current weather for the user's location or a specified city.
+   ### Notes
+   - Requires API key in `.env`.
+   - Defaults to current location if no input.
+}
+{
+   ## 7. Schedule Events / Get Events (`get_events`)
 
-### Logic Flow
-1. **Get Location**: Calls `get_current_location()` to determine city via IP.
-2. **Prompt for Input**: Asks if user wants to enter a city or use current location.
-3. **API Call**: Uses OpenWeatherMap API with city name to get weather data.
-4. **Parse Data**: Extracts description, temperature, etc.
-5. **Feedback**: Speaks and prints weather report.
+   ### Purpose
+   Retrieves and displays upcoming events from Google Calendar.
 
-### Dependencies
-- `requests` for API.
-- `os` for environment variables (API key).
-- `print_slow_and_speak`.
+   ### Logic Flow
+   1. **Authenticate**: Uses `authenticate_google_calendar()` to connect via OAuth.
+   2. **Fetch Events**: Queries Google Calendar API for upcoming events (max 10).
+   3. **Filter and Display**: For each event, waits for user input (Enter to continue, Esc to exit).
+      - Shows date, time, title, description.
+   4. **Feedback**: Speaks event details.
 
-### Notes
-- Requires API key in `.env`.
-- Defaults to current location if no input.
+   ### Dependencies
+   - `googleapiclient` for Calendar API.
+   - `datetime` for time handling.
+   - `keyboard` for input.
+   - `print_slow_and_speak`.
 
-## 7. Schedule Events / Get Events (`get_events`)
+   ### Notes
+   - Requires `credentials.json` and token setup.
+   - Interactive display for multiple events.
+}
+{  
+   ## 8. Add Events (`add_event`)
 
-### Purpose
-Retrieves and displays upcoming events from Google Calendar.
+   ### Purpose
+   Adds a new event to Google Calendar based on user input.
 
-### Logic Flow
-1. **Authenticate**: Uses `authenticate_google_calendar()` to connect via OAuth.
-2. **Fetch Events**: Queries Google Calendar API for upcoming events (max 10).
-3. **Filter and Display**: For each event, waits for user input (Enter to continue, Esc to exit).
-   - Shows date, time, title, description.
-4. **Feedback**: Speaks event details.
+   ### Logic Flow
+   1. **Authenticate**: Connects to Google Calendar.
+   2. **Collect Details**: Prompts for title, description, year, month, day, time via input and speech.
+   3. **Format Event**: Creates event dict with start/end times in IST.
+   4. **Insert Event**: Uses API to add event and confirms success.
 
-### Dependencies
-- `googleapiclient` for Calendar API.
-- `datetime` for time handling.
-- `keyboard` for input.
-- `print_slow_and_speak`.
+   ### Dependencies
+   - Same as get_events: `googleapiclient`, `datetime`, etc.
+   - `input` for user data.
 
-### Notes
-- Requires `credentials.json` and token setup.
-- Interactive display for multiple events.
+   ### Notes
+   - Assumes default 12:00 time if not provided.
+   - Provides link to created event.
+}
+{
+   ## 9. Read Emails (`read_recent_emails`)
 
-## 8. Add Events (`add_event`)
+   ### Purpose
+   Reads and speaks recent emails from Gmail inbox.
 
-### Purpose
-Adds a new event to Google Calendar based on user input.
+   ### Logic Flow
+   1. **Authenticate**: Logs into Gmail IMAP using credentials.
+   2. **Fetch Emails**: Retrieves latest emails (up to 2).
+   3. **Parse Content**: Extracts sender, subject, body preview.
+   4. **Display and Speak**: Prints and speaks email details.
 
-### Logic Flow
-1. **Authenticate**: Connects to Google Calendar.
-2. **Collect Details**: Prompts for title, description, year, month, day, time via input and speech.
-3. **Format Event**: Creates event dict with start/end times in IST.
-4. **Insert Event**: Uses API to add event and confirms success.
+   ### Dependencies
+   - `imaplib` for email access.
+   - `email` for parsing.
+   - `os` for env vars.
+   - `speak_and_play`.
 
-### Dependencies
-- Same as get_events: `googleapiclient`, `datetime`, etc.
-- `input` for user data.
-
-### Notes
-- Assumes default 12:00 time if not provided.
-- Provides link to created event.
-
-## 9. Read Emails (`read_recent_emails`)
-
-### Purpose
-Reads and speaks recent emails from Gmail inbox.
-
-### Logic Flow
-1. **Authenticate**: Logs into Gmail IMAP using credentials.
-2. **Fetch Emails**: Retrieves latest emails (up to 2).
-3. **Parse Content**: Extracts sender, subject, body preview.
-4. **Display and Speak**: Prints and speaks email details.
-
-### Dependencies
-- `imaplib` for email access.
-- `email` for parsing.
-- `os` for env vars.
-- `speak_and_play`.
-
+}

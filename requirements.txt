@@ -19,3 +19,6 @@ smtplib
 keyboard 
 google-generativeai
 psutil
+wikipedia
+geopy
+geocoder

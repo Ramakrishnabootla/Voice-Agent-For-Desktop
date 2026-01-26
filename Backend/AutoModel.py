@@ -16,7 +16,8 @@ funcs = [
     'general', 'realtime', 'open', 'close', 'play', 
     'generate image', 'system', 'content', 'google search', 
     'youtube search', 'click', 'double click', 'send email',
-    'check battery status', 'shutdown laptop', 'restart laptop'
+    'check battery status', 'shutdown laptop', 'restart laptop',
+    'read emails', 'create gui', 'get location info', 'get weather'
 ]
 
 @TimeIt
@@ -52,7 +53,27 @@ def Model(prompt: str = 'test'):
             {'role': 'User', 'message': 'open chrome and firefox'},
             {'role': 'Chatbot', 'message': 'open chrome, open firefox'},
             {'role': 'User', 'message': 'chat with me'},
-            {'role': 'Chatbot', 'message': 'general'}
+            {'role': 'Chatbot', 'message': 'general'},
+            {'role': 'User', 'message': 'check battery status'},
+            {'role': 'Chatbot', 'message': 'check battery status'},
+            {'role': 'User', 'message': 'shutdown my laptop'},
+            {'role': 'Chatbot', 'message': 'shutdown laptop'},
+            {'role': 'User', 'message': 'restart my computer'},
+            {'role': 'Chatbot', 'message': 'restart laptop'},
+            {'role': 'User', 'message': 'read my emails'},
+            {'role': 'Chatbot', 'message': 'read emails'},
+            {'role': 'User', 'message': 'what are my recent emails'},
+            {'role': 'Chatbot', 'message': 'read emails'},
+            {'role': 'User', 'message': 'check my email'},
+            {'role': 'Chatbot', 'message': 'read emails'},
+            {'role': 'User', 'message': 'show me my last email'},
+            {'role': 'Chatbot', 'message': 'read emails'},
+            {'role': 'User', 'message': 'search wikipedia'},
+            {'role': 'Chatbot', 'message': 'create gui'},
+            {'role': 'User', 'message': 'what is my location'},
+            {'role': 'Chatbot', 'message': 'get location info'},
+            {'role': 'User', 'message': 'what is the weather'},
+            {'role': 'Chatbot', 'message': 'get weather'}
         ],
         prompt_truncation='OFF',
         connectors=[], 
@@ -61,7 +82,7 @@ def Model(prompt: str = 'test'):
             "You will decide whether a query is a 'general' query or 'realtime' query or is it asking to perform any task or automation like 'open facebook, instagram', etc.\n"
             "*** Do not answer any query, just decide what kind of query is given to you. ***\n"
             "-> Respond with 'general' if a query can be answered by a llm model (conversational ai chatbot) and doesn't require up-to-date information.\n"
-            "-> Respond with 'realtime' if a query cannot be answered by an llm model (needs real-time data).\n"
+            "-> Respond with 'realtime' if a query cannot be answered by an llm model (needs real-time data) but is not a specific system command.\n"
             "-> Respond with 'open (application name or website name)' if a query asks to open any application.\n"
             "-> Respond with 'close (application name)' if a query asks to close any application.\n"
             "-> Respond with 'play (song name)' if a query asks to play any song.\n"
@@ -75,6 +96,10 @@ def Model(prompt: str = 'test'):
             "-> Respond with 'check battery status' if a query asks about battery level or charging status.\n"
             "-> Respond with 'shutdown laptop' if a query asks to shutdown the computer.\n"
             "-> Respond with 'restart laptop' if a query asks to restart the computer.\n"
+            "-> Respond with 'read emails' if a query asks to read, check, or view emails.\n"
+            "-> Respond with 'create gui' if a query asks to search Wikipedia or create a GUI for information.\n"
+            "-> Respond with 'get location info' if a query asks about current location or distance to a place.\n"
+            "-> Respond with 'get weather' if a query asks about weather information.\n"
             "*** If the query asks for multiple tasks, respond accordingly. ***\n"
             "*** Respond with 'general' if you can't decide the type of query. ***"
         )
