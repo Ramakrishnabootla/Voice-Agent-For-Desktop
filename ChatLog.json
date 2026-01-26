@@ -430,5 +430,41 @@
     {
         "role": "user",
         "content": "Send email."
+    },
+    {
+        "role": "user",
+        "content": "Hey jarvis what's the battery status?"
+    },
+    {
+        "role": "user",
+        "content": "Check the battery status."
+    },
+    {
+        "role": "user",
+        "content": "Thank you."
+    },
+    {
+        "role": "assistant",
+        "content": "You're welcome."
+    },
+    {
+        "role": "user",
+        "content": "You're welcome."
+    },
+    {
+        "role": "user",
+        "content": "what is my battery status"
+    },
+    {
+        "role": "user",
+        "content": "shutdown my laptop"
+    },
+    {
+        "role": "user",
+        "content": "restart the computer"
+    },
+    {
+        "role": "user",
+        "content": "Hey jarvis can you shut down my laptop?"
     }
 ]

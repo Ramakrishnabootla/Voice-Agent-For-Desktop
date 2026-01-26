@@ -20,6 +20,7 @@ from Backend.AutoModel import Model
 from Backend.ChatGpt import ChatBotAI as ChatGptAI
 from Backend.TTS import TTS
 from Backend.Email import send_email, set_receiver_email, set_email_subject, set_email_body, process_email_voice_input
+from Backend.SystemCommands import check_battery_status, shutdown_laptop, restart_laptop
 
 # Load environment variables
 load_dotenv()
@@ -122,6 +123,30 @@ def MainExecution(Query: str):
             email_thread.start()
             working.append(email_thread)
             print("Email sending initiated")
+        elif 'check battery status' in Decision:
+            print("Check battery status query")
+            state = 'Checking Battery...'
+            # Run battery check in a separate thread
+            battery_thread = threading.Thread(target=lambda: messages.append({'role': 'assistant', 'content': check_battery_status()}))
+            battery_thread.start()
+            working.append(battery_thread)
+            print("Battery check initiated")
+        elif 'shutdown laptop' in Decision:
+            print("Shutdown laptop query")
+            state = 'Shutting Down...'
+            # Run shutdown in a separate thread
+            shutdown_thread = threading.Thread(target=shutdown_laptop)
+            shutdown_thread.start()
+            working.append(shutdown_thread)
+            print("Shutdown initiated")
+        elif 'restart laptop' in Decision:
+            print("Restart laptop query")
+            state = 'Restarting...'
+            # Run restart in a separate thread
+            restart_thread = threading.Thread(target=restart_laptop)
+            restart_thread.start()
+            working.append(restart_thread)
+            print("Restart initiated")
         else:
             print("Automation query")
             state = 'Automation...'

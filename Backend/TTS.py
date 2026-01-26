@@ -48,6 +48,15 @@ def TTS(text: str, func=lambda r=None: True) -> None:
     else:
         TextToSpeech(text, func)
 
+def print_slow_and_speak(text: str, delay: float = 0.05) -> None:
+    """Prints text slowly character by character and speaks it."""
+    for char in text:
+        print(char, end='', flush=True)
+        import time
+        time.sleep(delay)
+    print()  # New line
+    TTS(text)
+
 if __name__ == '__main__':
     while True:
         user_input = input('Enter the text: ')

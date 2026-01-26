@@ -18,3 +18,4 @@ googlesearch-python
 smtplib
 keyboard 
 google-generativeai
+psutil
