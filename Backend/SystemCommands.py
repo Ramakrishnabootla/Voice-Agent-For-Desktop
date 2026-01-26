@@ -92,7 +92,8 @@ def read_recent_emails():
 
         if not email_user or not email_password:
             error_msg = "Email credentials not found in environment variables."
-            print_slow_and_speak(error_msg)
+            print(error_msg)
+            TTS(error_msg)
             return error_msg
 
         # Connect to Gmail IMAP
@@ -106,7 +107,8 @@ def read_recent_emails():
 
         if not email_ids:
             message = "No emails found in your inbox."
-            print_slow_and_speak(message)
+            print(message)
+            TTS(message)
             return message
 
         # Get the last 2 emails
@@ -152,16 +154,19 @@ def read_recent_emails():
             for i, info in enumerate(emails_info, 1):
                 full_message += f"Email {i}:\n{info}\n\n"
 
-            print_slow_and_speak(full_message)
+            print(full_message)
+            TTS(full_message)
             return full_message
         else:
             message = "No emails could be read."
-            print_slow_and_speak(message)
+            print(message)
+            TTS(message)
             return message
 
     except Exception as e:
         error_msg = f"Error reading emails: {str(e)}"
-        print_slow_and_speak(error_msg)
+        print(error_msg)
+        TTS(error_msg)
         return error_msg
 
 def create_gui():

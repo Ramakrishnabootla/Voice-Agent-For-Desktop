@@ -674,5 +674,33 @@
     {
         "role": "assistant",
         "content": "Failed to execute: exit. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Hey jarvis."
+    },
+    {
+        "role": "assistant",
+        "content": "Hello, how can I help you?"
+    },
+    {
+        "role": "user",
+        "content": "Hello how can i help you?"
+    },
+    {
+        "role": "assistant",
+        "content": "I'm here to assist you with any questions or tasks you may have."
+    },
+    {
+        "role": "user",
+        "content": "What is my last recent email?"
+    },
+    {
+        "role": "user",
+        "content": "Thank you jarvis."
+    },
+    {
+        "role": "assistant",
+        "content": "You're welcome."
     }
 ]
