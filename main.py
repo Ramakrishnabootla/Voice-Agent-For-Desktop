@@ -19,6 +19,7 @@ from Backend.Chatbot import ChatBotAI
 from Backend.AutoModel import Model
 from Backend.ChatGpt import ChatBotAI as ChatGptAI
 from Backend.TTS import TTS
+from Backend.Email import send_email, set_receiver_email, set_email_subject, set_email_body, process_email_voice_input
 
 # Load environment variables
 load_dotenv()
@@ -113,6 +114,14 @@ def MainExecution(Query: str):
             messages.append({'role': 'assistant', 'content': Answer})
             with open('ChatLog.json', 'w') as f:
                 json.dump(messages, f, indent=4)
+        elif 'send email' in Decision:
+            print("Send email query")
+            state = 'Sending Email...'
+            # Run email sending in a separate thread to avoid blocking
+            email_thread = threading.Thread(target=lambda: messages.append({'role': 'assistant', 'content': send_email()}))
+            email_thread.start()
+            working.append(email_thread)
+            print("Email sending initiated")
         else:
             print("Automation query")
             state = 'Automation...'
@@ -128,7 +137,6 @@ def MainExecution(Query: str):
         state = 'Listening...'
         print("State set to Listening")
 
-@eel.expose
 def js_messages():
     """Fetches new messages to update the GUI."""
     global messages, js_messageslist
@@ -140,7 +148,6 @@ def js_messages():
         return new_messages
     return []
 
-@eel.expose
 def js_state(stat=None):
     """Updates or retrieves the current state."""
     global state
@@ -148,33 +155,33 @@ def js_state(stat=None):
         state = stat
     return state
 
-@eel.expose
 def js_mic(transcription):
     """Handles microphone input."""
     print(transcription)
     global state
+    
+    # Check if email composition is active
+    if process_email_voice_input(transcription):
+        return  # Voice input was processed for email composition
+    
     state = 'Available...'  # Reset state to allow processing
     if not working or not working[0].is_alive():
         work = threading.Thread(target=MainExecution, args=(transcription,), daemon=True)
         work.start()
         working.append(work)
 
-@eel.expose
 def python_call_to_start_video():
     """Starts the video capture."""
     eel.startVideo()
 
-@eel.expose
 def python_call_to_stop_video():
     """Stops the video capture."""
     eel.stopVideo()
 
-@eel.expose
 def python_call_to_capture():
     """Captures an image from the video."""
     eel.capture()
 
-@eel.expose
 def js_page(cpage=None):
     """Navigates to the specified page."""
     if cpage == 'home':
@@ -182,7 +189,6 @@ def js_page(cpage=None):
     elif cpage == 'settings':
         eel.openSettings()
 
-@eel.expose
 def js_setvalues(GeminiApi, HuggingFaceApi, GroqApi, AssistantName, Username):
     """Sets API keys and user preferences."""
     print(f'GeminiApi = {GeminiApi!r} HuggingFaceApi = {HuggingFaceApi!r} GroqApi = {GroqApi!r} AssistantName = {AssistantName!r} Username = {Username!r}')
@@ -197,24 +203,20 @@ def js_setvalues(GeminiApi, HuggingFaceApi, GroqApi, AssistantName, Username):
     if Username:
         set_key('.env', 'NickName', Username)
 
-@eel.expose
 def setup():
     """Sets up the GUI window."""
     pyautogui.hotkey('win', 'up')
     # Welcome message
     TTS("Welcome to JARVIS. How can I help you?")
 
-@eel.expose
 def js_language():
     """Returns the input language."""
     return InputLanguage
 
-@eel.expose
 def js_assistantname():
     """Returns the assistant's name."""
     return Assistantname
 
-@eel.expose
 def js_capture(image_data):
     """Saves the captured image."""
     image_bytes = base64.b64decode(image_data.split(',')[1])
@@ -224,5 +226,26 @@ def js_capture(image_data):
 # Initialize Eel and start the application
 eel.init('web')
 print("Eel initialized, starting server...")
+
+# Expose email functions to Eel
+eel.expose(set_receiver_email)
+eel.expose(set_email_subject)
+eel.expose(set_email_body)
+eel.expose(process_email_voice_input)
+
+# Expose other functions to Eel
+eel.expose(js_messages)
+eel.expose(js_state)
+eel.expose(js_mic)
+eel.expose(python_call_to_start_video)
+eel.expose(python_call_to_stop_video)
+eel.expose(python_call_to_capture)
+eel.expose(js_page)
+eel.expose(js_setvalues)
+eel.expose(setup)
+eel.expose(js_language)
+eel.expose(js_assistantname)
+eel.expose(js_capture)
+
 print("Starting Eel server...")
 eel.start('spider.html', port=44449)

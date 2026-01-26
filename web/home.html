@@ -442,6 +442,17 @@
                 <p class="kaushik-hello-jarvis-RREVtL poppins-bold-white-18px">
                 </p>
             </div>
+            
+            <!-- Email Input Section -->
+            <div id="email-input-section" style="display: none; position: absolute; bottom: 200px; left: 820px; width: 629px; background-color: rgba(0,0,0,0.8); padding: 20px; border-radius: 10px;">
+                <h3 style="color: white; font-family: Poppins; margin-bottom: 15px;">Send Email</h3>
+                <input type="email" id="email-receiver" placeholder="Enter receiver's email address" 
+                       style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+                <button onclick="submitEmail()" 
+                        style="width: 100%; padding: 10px; background-color: #0b68f3; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
+                    Send Email Address
+                </button>
+            </div>
             <div class="navigation-bar-xl4bh6 cp">
                 <img alt="nevBG" class="nev-bg-DUdYHJ" src="https://raw.githubusercontent.com/Divy0The0Fire/J4E/main/nevbg-image-1.png" />
                 <div class="navigation-bar-text-DUdYHJ ">
@@ -725,5 +736,36 @@
     eel.expose(startVideo);
     eel.expose(stopVideo); // Expose stopVideo function
     eel.expose(capture);
+
+    // Email functions
+    function showEmailInput() {
+        document.getElementById('email-input-section').style.display = 'block';
+        document.getElementById('email-receiver').focus();
+    }
+
+    function hideEmailInput() {
+        document.getElementById('email-input-section').style.display = 'none';
+        document.getElementById('email-receiver').value = '';
+    }
+
+    function submitEmail() {
+        const email = document.getElementById('email-receiver').value.trim();
+        if (email) {
+            eel.set_receiver_email(email);
+            hideEmailInput();
+        } else {
+            alert('Please enter a valid email address');
+        }
+    }
+
+    // Allow Enter key to submit email
+    document.getElementById('email-receiver').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            submitEmail();
+        }
+    });
+
+    eel.expose(showEmailInput);
+    eel.expose(hideEmailInput);
 
 </script>

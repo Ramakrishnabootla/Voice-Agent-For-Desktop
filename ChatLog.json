@@ -254,5 +254,181 @@
     {
         "role": "assistant",
         "content": "Playing shivangive on YouTube. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open youtube."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened youtube. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open youtube anything else can help you with."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened youtube. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open youtube."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened youtube. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open youtube."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened youtube. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open youtube anything else."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened youtube. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "What is the gold price today?"
+    },
+    {
+        "role": "assistant",
+        "content": "According to the provided data, the current gold price is:\n22K Gold Price per Gram in United States dollar Today: $99.93\nPlease note that these prices may not be up-to-date, and I recommend verifying with official sources for the most accurate current rates."
+    },
+    {
+        "role": "user",
+        "content": "Open excel."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened excel. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Exit."
+    },
+    {
+        "role": "assistant",
+        "content": "Failed to execute: exit. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Close jarvis."
+    },
+    {
+        "role": "assistant",
+        "content": "Closed jarvis. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open youtube."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened youtube. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open youtube."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened youtube website. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open youtube website anything else."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened youtube website. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open youtube website."
+    },
+    {
+        "role": "user",
+        "content": "Place yaro song on youtube."
+    },
+    {
+        "role": "assistant",
+        "content": "Playing yaro song on YouTube. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open excel."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened excel. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open notepad."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened notepad. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open command from."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened command prompt. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open excel."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened excel. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open instagram."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened instagram website. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Open calci."
+    },
+    {
+        "role": "user",
+        "content": "Open calculator."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened calculator. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": ""
+    },
+    {
+        "role": "user",
+        "content": "Lock my screen."
+    },
+    {
+        "role": "assistant",
+        "content": "Failed to execute: lock screen. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Send email."
     }
 ]

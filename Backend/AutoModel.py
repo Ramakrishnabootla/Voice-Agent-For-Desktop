@@ -15,7 +15,7 @@ co = cohere.Client(api_key=environ['CohereAPI'])
 funcs = [
     'general', 'realtime', 'open', 'close', 'play', 
     'generate image', 'system', 'content', 'google search', 
-    'youtube search', 'click', 'double click'
+    'youtube search', 'click', 'double click', 'send email'
 ]
 
 @TimeIt
@@ -70,6 +70,7 @@ def Model(prompt: str = 'test'):
             "-> Respond with 'google search (topic)' if a query asks to search a topic on Google.\n"
             "-> Respond with 'youtube search (topic)' if a query asks to search a topic on YouTube.\n"
             "-> Respond with 'click (text)' or 'double click (text)' if a query asks to click on any text on the screen.\n"
+            "-> Respond with 'send email' if a query asks to send an email.\n"
             "*** If the query asks for multiple tasks, respond accordingly. ***\n"
             "*** Respond with 'general' if you can't decide the type of query. ***"
         )

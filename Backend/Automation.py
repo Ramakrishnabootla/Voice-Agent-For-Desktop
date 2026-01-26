@@ -56,7 +56,22 @@ app_aliases = {
     "illustrator": "illustrator",
     "discord": "discord",
     "steam": "steam",
-    # Add more as needed 
+    # Add more as needed
+}
+
+# Web services that should be opened as websites, not apps
+web_services = {
+    "youtube": "https://www.youtube.com",
+    "facebook": "https://www.facebook.com",
+    "instagram": "https://www.instagram.com",
+    "twitter": "https://www.twitter.com",
+    "gmail": "https://www.gmail.com",
+    "google": "https://www.google.com",
+    "netflix": "https://www.netflix.com",
+    "amazon": "https://www.amazon.com",
+    "github": "https://www.github.com",
+    "linkedin": "https://www.linkedin.com",
+    # Add more web services as needed
 }
 
 # Track opened websites
@@ -193,23 +208,49 @@ def open_app(app_name):
     # Use alias if available
     actual_name = app_aliases.get(app_name.lower(), app_name)
     print(f"Attempting to open app: {actual_name}")
+
+    # Try reliable Windows methods first
     try:
-        # Try AppOpener first
-        print("Trying AppOpener...")
-        subprocess.run(['python', '-c', f'from AppOpener import open as appopen; appopen("{actual_name}", match_closest=True, output=False, throw_error=True)'], capture_output=True, check=True)
-        print("AppOpener succeeded")
+        # Method 1: Use os.startfile() - most reliable on Windows
+        print(f"Trying os.startfile for {actual_name}")
+        os.startfile(actual_name)
+        print("os.startfile succeeded")
         return True
-    except Exception as e:
-        print(f"AppOpener failed: {e}")
+    except Exception as e1:
+        print(f"os.startfile failed: {e1}")
         try:
-            # Fallback to Windows start command
-            print(f"Trying start command for {actual_name}")
-            subprocess.run(['powershell', '-Command', f'Start-Process {actual_name}'], check=True)
-            print("Start command succeeded")
+            # Method 2: Use cmd start command
+            print(f"Trying cmd start for {actual_name}")
+            subprocess.run(['cmd', '/c', 'start', actual_name], check=True, shell=True)
+            print("cmd start succeeded")
             return True
         except Exception as e2:
-            print(f"Start command failed: {e2}")
-            return False
+            print(f"cmd start failed: {e2}")
+            try:
+                # Method 3: Use PowerShell Start-Process with .exe extension
+                print(f"Trying PowerShell Start-Process for {actual_name}.exe")
+                subprocess.run(['powershell', '-Command', f'Start-Process "{actual_name}.exe"'], check=True)
+                print("PowerShell Start-Process succeeded")
+                return True
+            except Exception as e3:
+                print(f"PowerShell Start-Process failed: {e3}")
+                try:
+                    # Method 4: Try PowerShell Start-Process without .exe extension
+                    print(f"Trying PowerShell Start-Process for {actual_name}")
+                    subprocess.run(['powershell', '-Command', f'Start-Process {actual_name}'], check=True)
+                    print("PowerShell Start-Process (no extension) succeeded")
+                    return True
+                except Exception as e4:
+                    print(f"PowerShell Start-Process (no extension) failed: {e4}")
+                    # Last resort: Try AppOpener (even though it may not work)
+                    try:
+                        print("Trying AppOpener as last resort...")
+                        appopen(actual_name, match_closest=True, output=False, throw_error=True)
+                        print("AppOpener succeeded")
+                        return True
+                    except Exception as e5:
+                        print(f"All methods failed for {actual_name}: {e5}")
+                        return False
 
 # Function to handle app closing
 def close_app(app_name):
@@ -219,20 +260,28 @@ def close_app(app_name):
     try:
         # Try AppOpener first
         print("Trying AppOpener close...")
-        subprocess.run(['python', '-c', f'from AppOpener import close; close("{actual_name}", match_closest=True, output=False, throw_error=True)'], capture_output=True, check=True)
+        close(actual_name, match_closest=True, output=False, throw_error=True)
         print("AppOpener close succeeded")
         return True
     except Exception as e:
         print(f"AppOpener close failed: {e}")
         try:
-            # Fallback to taskkill
-            print(f"Trying taskkill for {actual_name}.exe")
-            subprocess.run(['taskkill', '/im', f'{actual_name}.exe', '/f'], check=True)
-            print("Taskkill succeeded")
+            # Fallback: Use taskkill - most reliable on Windows
+            print(f"Trying taskkill for {actual_name}")
+            subprocess.run(['taskkill', '/im', f'{actual_name}.exe', '/f'], check=True, capture_output=True)
+            print("taskkill succeeded")
             return True
         except Exception as e2:
-            print(f"Taskkill failed: {e2}")
-            return False
+            print(f"taskkill failed: {e2}")
+            try:
+                # Alternative: Use taskkill without .exe extension
+                print(f"Trying taskkill without extension for {actual_name}")
+                subprocess.run(['taskkill', '/im', actual_name, '/f'], check=True, capture_output=True)
+                print("taskkill without extension succeeded")
+                return True
+            except Exception as e3:
+                print(f"taskkill without extension failed: {e3}")
+                return False
 
 # Function to play YouTube video
 def play_youtube(query):
@@ -245,15 +294,25 @@ async def execute_commands(commands):
     for command in commands:
         if command.startswith('open '):
             app_name = command.removeprefix('open ')
-            print(f"Trying to open app: {app_name}")
-            if open_app(app_name):
-                results.append(f"Opened {app_name}")
-            else:
-                print(f"App '{app_name}' not found, trying as website: https://{app_name}.com")
-                # If not an app, try opening as website
-                webopen(f'https://{app_name}.com')
+            print(f"Trying to open: {app_name}")
+
+            # Check if it's a known web service first
+            if app_name.lower() in web_services:
+                print(f"Opening web service: {app_name}")
+                webopen(web_services[app_name.lower()])
                 opened_websites.append(app_name.lower())
                 results.append(f"Opened {app_name} website")
+            else:
+                # Try opening as desktop app
+                print(f"Trying to open app: {app_name}")
+                if open_app(app_name):
+                    results.append(f"Opened {app_name}")
+                else:
+                    print(f"App '{app_name}' not found, trying as website: https://{app_name}.com")
+                    # If not an app, try opening as website
+                    webopen(f'https://{app_name}.com')
+                    opened_websites.append(app_name.lower())
+                    results.append(f"Opened {app_name} website")
         elif command.startswith('close '):
             app_name = command.removeprefix('close ')
             print(f"Trying to close app: {app_name}")
