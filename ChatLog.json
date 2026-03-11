@@ -702,5 +702,13 @@
     {
         "role": "assistant",
         "content": "You're welcome."
+    },
+    {
+        "role": "user",
+        "content": "Hey jarvis can you send the email?"
+    },
+    {
+        "role": "user",
+        "content": "Open youtube."
     }
 ]
