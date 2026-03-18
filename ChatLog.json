@@ -710,5 +710,25 @@
     {
         "role": "user",
         "content": "Open youtube."
+    },
+    {
+        "role": "user",
+        "content": "Open youtube."
+    },
+    {
+        "role": "assistant",
+        "content": "Opened youtube website. Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Write a mail."
+    },
+    {
+        "role": "assistant",
+        "content": "Unknown command: content (email). Anything else I can help you with?"
+    },
+    {
+        "role": "user",
+        "content": "Send email."
     }
 ]
