@@ -1,4 +1,5 @@
 import cohere
+import json
 from Backend.Extra import TimeIt
 from rich import print
 from json import load, dump
@@ -28,15 +29,21 @@ def Model(prompt: str = 'test'):
     """
     
     # Load chat history from ChatLog.json
-    with open('ChatLog.json', 'r') as f:
-        messages = load(f)
+    try:
+        with open('ChatLog.json', 'r') as f:
+            messages = load(f)
+    except (json.JSONDecodeError, FileNotFoundError):
+        messages = []
     
     # Append the user's prompt to the chat history
     messages.append({'role': 'user', 'content': f'{prompt}'})
     
     # Save the updated chat history
-    with open('ChatLog.json', 'w') as f:
-        dump(messages, f, indent=4)
+    try:
+        with open('ChatLog.json', 'w') as f:
+            dump(messages, f, indent=4)
+    except Exception as e:
+        print(f"Warning: Could not save ChatLog.json: {e}")
     
     # Cohere streaming response to classify the prompt
     stream = co.chat_stream(
@@ -67,6 +74,12 @@ def Model(prompt: str = 'test'):
             {'role': 'User', 'message': 'check my email'},
             {'role': 'Chatbot', 'message': 'read emails'},
             {'role': 'User', 'message': 'show me my last email'},
+            {'role': 'Chatbot', 'message': 'read emails'},
+            {'role': 'User', 'message': 'check out my recent emails'},
+            {'role': 'Chatbot', 'message': 'read emails'},
+            {'role': 'User', 'message': 'check out my recent mail'},
+            {'role': 'Chatbot', 'message': 'read emails'},
+            {'role': 'User', 'message': 'show my recent mail id'},
             {'role': 'Chatbot', 'message': 'read emails'},
             {'role': 'User', 'message': 'search wikipedia'},
             {'role': 'Chatbot', 'message': 'create gui'},

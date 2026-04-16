@@ -1,413 +1,5 @@
 [
     {
-        "role": "assistant",
-        "content": "Hello, how can I help you?"
-    },
-    {
-        "role": "user",
-        "content": "Main hindi mein baat kar sakte ho."
-    },
-    {
-        "role": "assistant",
-        "content": "Haan, main hindi mein baat kar sakta hoon. Aapko kya puchhna hai?"
-    },
-    {
-        "role": "user",
-        "content": "Oh it's very great telugu mein baat kar sakte."
-    },
-    {
-        "role": "assistant",
-        "content": "Nahin, main telugu mein baat nahin kar sakta, lekin main hindi aur english mein baat kar sakta hoon."
-    },
-    {
-        "role": "user",
-        "content": "Can you introduce yourself?"
-    },
-    {
-        "role": "assistant",
-        "content": "I am JARVIS, an advanced AI chatbot, and I am here to assist you with any questions or information you may need."
-    },
-    {
-        "role": "user",
-        "content": "What is 2 into 4 + 5 into 7 + 6 into 4?"
-    },
-    {
-        "role": "assistant",
-        "content": "To calculate this, we need to follow the order of operations.\nFirst, let's calculate the multiplication:\n2 into 4 = 2 * 4 = 8,\n5 into 7 = 5 * 7 = 35,\n6 into 4 = 6 * 4 = 24.\nNow, let's add them together:\n8 + 35 + 24 = 67.\nSo, the answer is 67."
-    },
-    {
-        "role": "user",
-        "content": "Can you provide me the formula of excel sheet to add multiple cells of c4o2 d12 colum?"
-    },
-    {
-        "role": "assistant",
-        "content": "The formula to add multiple cells in Excel is:\n=SUM(C4:C12, D4:D12)\nor\n=SUM(C4:C12)+SUM(D4:D12)\nAlternatively, you can also use:\n=SUM(C4:D12)\nThis will add all the cells in the range C4 to D12."
-    },
-    {
-        "role": "user",
-        "content": "What is the current gold price in india in rupees?"
-    },
-    {
-        "role": "assistant",
-        "content": "According to the provided data, the current gold price in India is:\n24K Gold Price per gram: \u20b913,089.50\n22K Gold Price per gram (not explicitly mentioned, but another price is given): \u20b911,998.71\nPlease note that these prices may not be up-to-date, and I recommend verifying with official sources for the most accurate current rates."
-    },
-    {
-        "role": "user",
-        "content": "What is the inr value according to dollars?"
-    },
-    {
-        "role": "assistant",
-        "content": "According to the provided data, the current USD to INR exchange rate is:\n1 USD = 90.03 INR\nAlternatively, other exchange rates mentioned are:\n1 USD = 10.3642 INR (this seems to be an incorrect exchange rate, as it would imply 1 INR = 0.0965 USD)\n1 USD = 10.375 INR (this also seems to be an incorrect exchange rate)\nPlease note that these exchange rates may not be up-to-date, and I recommend verifying with official sources for the most accurate current rates."
-    },
-    {
-        "role": "user",
-        "content": "Hey jarvis how are you?"
-    },
-    {
-        "role": "assistant",
-        "content": "I'm functioning properly, thank you for asking. I'm ready to assist you with any questions or tasks you may have."
-    },
-    {
-        "role": "user",
-        "content": "Okay can you open youtube?"
-    },
-    {
-        "role": "assistant",
-        "content": "Opened youtube website. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "I want to listen to siyara song on youtube."
-    },
-    {
-        "role": "assistant",
-        "content": "Playing siyara song on YouTube. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Lock my screen."
-    },
-    {
-        "role": "assistant",
-        "content": "Failed to execute: lock screen. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Mute my laptop."
-    },
-    {
-        "role": "assistant",
-        "content": "Failed to execute: mute. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Unmute."
-    },
-    {
-        "role": "assistant",
-        "content": "Failed to execute: unmute. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Volume decrease."
-    },
-    {
-        "role": "assistant",
-        "content": "Failed to execute: volume decrease. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Volume volume."
-    },
-    {
-        "role": "assistant",
-        "content": "Failed to execute: volume. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Volume increase."
-    },
-    {
-        "role": "assistant",
-        "content": "Failed to execute: volume increase. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open instagram."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened instagram website. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open instagram website anything else."
-    },
-    {
-        "role": "user",
-        "content": "Open youtube."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened youtube website. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open youtube website anything else can help you with."
-    },
-    {
-        "role": "user",
-        "content": "Comments."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened youtube website. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open youtube."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened youtube website. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open."
-    },
-    {
-        "role": "user",
-        "content": "Open youtube and play a song."
-    },
-    {
-        "role": "assistant",
-        "content": "Completed: Opened youtube website and Playing song on YouTube. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Update."
-    },
-    {
-        "role": "assistant",
-        "content": "According to the provided data, there are several types of updates mentioned:\n1. Update.mozilla.org - for Mozilla software updates\n2. Update (SQL) - a statement for changing database records\n3. Windows Update - a built-in service in Microsoft Windows operating systems\n4. Android updates - can be checked and updated in the Settings app\n5. Update definition - to bring something up to date\nPlease let me know which type of update you are referring to."
-    },
-    {
-        "role": "user",
-        "content": "Open spotify."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened spotify website. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open excel."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened excel. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open youtube and play yara song."
-    },
-    {
-        "role": "assistant",
-        "content": "Completed: Opened youtube website and Playing yara song on YouTube. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Can you pause the song?"
-    },
-    {
-        "role": "assistant",
-        "content": "Failed to execute: pause. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Close youtube."
-    },
-    {
-        "role": "assistant",
-        "content": "Closed youtube website (please close the browser tab manually). Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Play song on spotify."
-    },
-    {
-        "role": "assistant",
-        "content": "Playing (song name) on YouTube. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Hey shivangive."
-    },
-    {
-        "role": "assistant",
-        "content": "I'm JARVIS, not Shivangi. How can I help you?"
-    },
-    {
-        "role": "user",
-        "content": "Play shivangive."
-    },
-    {
-        "role": "assistant",
-        "content": "Playing shivangive on YouTube. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open youtube."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened youtube. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open youtube anything else can help you with."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened youtube. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open youtube."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened youtube. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open youtube."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened youtube. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open youtube anything else."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened youtube. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "What is the gold price today?"
-    },
-    {
-        "role": "assistant",
-        "content": "According to the provided data, the current gold price is:\n22K Gold Price per Gram in United States dollar Today: $99.93\nPlease note that these prices may not be up-to-date, and I recommend verifying with official sources for the most accurate current rates."
-    },
-    {
-        "role": "user",
-        "content": "Open excel."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened excel. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Exit."
-    },
-    {
-        "role": "assistant",
-        "content": "Failed to execute: exit. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Close jarvis."
-    },
-    {
-        "role": "assistant",
-        "content": "Closed jarvis. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open youtube."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened youtube. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open youtube."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened youtube website. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open youtube website anything else."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened youtube website. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open youtube website."
-    },
-    {
-        "role": "user",
-        "content": "Place yaro song on youtube."
-    },
-    {
-        "role": "assistant",
-        "content": "Playing yaro song on YouTube. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open excel."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened excel. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open notepad."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened notepad. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open command from."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened command prompt. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open excel."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened excel. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open instagram."
-    },
-    {
-        "role": "assistant",
-        "content": "Opened instagram website. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Open calci."
-    },
-    {
         "role": "user",
         "content": "Open calculator."
     },
@@ -417,318 +9,158 @@
     },
     {
         "role": "user",
-        "content": ""
-    },
-    {
-        "role": "user",
-        "content": "Lock my screen."
+        "content": "Hey jarvis can you increase my volume?"
     },
     {
         "role": "assistant",
-        "content": "Failed to execute: lock screen. Anything else I can help you with?"
+        "content": "Failed to execute: increase volume. Anything else I can help you with?"
     },
     {
         "role": "user",
-        "content": "Send email."
-    },
-    {
-        "role": "user",
-        "content": "Hey jarvis what's the battery status?"
-    },
-    {
-        "role": "user",
-        "content": "Check the battery status."
-    },
-    {
-        "role": "user",
-        "content": "Thank you."
+        "content": "Hey jarvis what is the current gold price?"
     },
     {
         "role": "assistant",
-        "content": "You're welcome."
+        "content": "Searched for: (gold price). Anything else I can help you with?"
     },
     {
         "role": "user",
-        "content": "You're welcome."
-    },
-    {
-        "role": "user",
-        "content": "what is my battery status"
-    },
-    {
-        "role": "user",
-        "content": "shutdown my laptop"
-    },
-    {
-        "role": "user",
-        "content": "restart the computer"
-    },
-    {
-        "role": "user",
-        "content": "Hey jarvis can you shut down my laptop?"
-    },
-    {
-        "role": "user",
-        "content": "read my emails"
-    },
-    {
-        "role": "user",
-        "content": "check my inbox"
-    },
-    {
-        "role": "user",
-        "content": "show me recent emails"
-    },
-    {
-        "role": "user",
-        "content": "search wikipedia for python"
-    },
-    {
-        "role": "user",
-        "content": "what is my location"
-    },
-    {
-        "role": "user",
-        "content": "tell me the weather"
-    },
-    {
-        "role": "user",
-        "content": "check battery status"
-    },
-    {
-        "role": "user",
-        "content": "read my emails"
-    },
-    {
-        "role": "user",
-        "content": "shutdown my laptop"
-    },
-    {
-        "role": "user",
-        "content": "What's my last recent email?"
+        "content": "What is the latest gold price on today?"
     },
     {
         "role": "assistant",
-        "content": "According to the provided data, to find your last recent email, you can:\n1. Check the recent activity of your Gmail account\n2. Use the search function in Outlook to find recently opened emails\n3. Filter messages in your email box to quickly find the messages you want\nPlease note that I'm a text-based AI and do not have direct access to your email account. You may need to log in to your email account to check your recent emails."
+        "content": "Searched for: (gold price today). Anything else I can help you with?"
     },
     {
         "role": "user",
-        "content": "what's my last recent email"
-    },
-    {
-        "role": "user",
-        "content": "what's my last recent email"
-    },
-    {
-        "role": "user",
-        "content": "what's my last recent email"
-    },
-    {
-        "role": "user",
-        "content": "read my emails"
-    },
-    {
-        "role": "user",
-        "content": "check my email"
-    },
-    {
-        "role": "user",
-        "content": "show me my recent emails"
-    },
-    {
-        "role": "user",
-        "content": "what are my latest emails"
-    },
-    {
-        "role": "user",
-        "content": "tell me about my emails"
-    },
-    {
-        "role": "user",
-        "content": "What's my last recent email?"
-    },
-    {
-        "role": "user",
-        "content": "Hey jarvis."
+        "content": "Can you crack a joke?"
     },
     {
         "role": "assistant",
-        "content": "Hello, how can I help you?"
+        "content": "Why don't scientists trust atoms? Because they make up everything."
     },
     {
         "role": "user",
-        "content": "Hello how can i help you what is my last recent email?"
-    },
-    {
-        "role": "user",
-        "content": "What is my last recent email?"
-    },
-    {
-        "role": "user",
-        "content": "Watchmen recent email."
-    },
-    {
-        "role": "user",
-        "content": "How can i help you?"
-    },
-    {
-        "role": "user",
-        "content": "Hey jarvis what's my last recent email?"
-    },
-    {
-        "role": "user",
-        "content": "Hey jarvis."
+        "content": "Nice."
     },
     {
         "role": "assistant",
-        "content": "Hello, how can I help you?"
+        "content": "Glad you liked it."
     },
     {
         "role": "user",
-        "content": "What's my last recent email?"
+        "content": "Can you read my recent email?"
+    },
+    {
+        "role": "user",
+        "content": "Hey what is the gold price today?"
     },
     {
         "role": "assistant",
-        "content": "I found 2 recent email(s):\n\nEmail 1:\nFrom: \"Mermaid\" <hello@mermaidchart.com>\nSubject: What happens when your diagrams work better\nPreview: **It\u2019s not just about diagrams.\u00a0**  ==================================    **It\u2019s about getting your ...\n\nEmail 2:\nFrom: \"Facebook\" <notification@priority.facebookmail.com>\nSubject: Update for you: 1 new notification\nPreview: ========================================  View your notifications  https://www.facebook.com/nd/?noti...\n\n"
+        "content": "According to the provided data, the 18K Gold Rate is 17, and the 18K gold rate per gram is 10. However, please note that these prices may not be up-to-date, and I recommend verifying with official sources for the most accurate current rates."
     },
     {
         "role": "user",
-        "content": "Watch my last recent email."
+        "content": "What is the weather condition hyderabad telangana?"
+    },
+    {
+        "role": "user",
+        "content": "Hey can you read my last recent emails?"
+    },
+    {
+        "role": "user",
+        "content": "Hey jarvis what is the gold price today?"
+    },
+    {
+        "role": "user",
+        "content": "Hey jarvis can you read my recent email?"
     },
     {
         "role": "assistant",
-        "content": "I found 2 recent email(s):\n\nEmail 1:\nFrom: \"Mermaid\" <hello@mermaidchart.com>\nSubject: What happens when your diagrams work better\nPreview: **It\u2019s not just about diagrams.\u00a0**  ==================================    **It\u2019s about getting your ...\n\nEmail 2:\nFrom: \"Facebook\" <notification@priority.facebookmail.com>\nSubject: Update for you: 1 new notification\nPreview: ========================================  View your notifications  https://www.facebook.com/nd/?noti...\n\n"
+        "content": "You have 2 recent email(s). \n\nEmail 1:\nFrom: \"Instagram\" <follow-suggestions@mail.instagram.com>\nSubject: thop_talks, see notlucas_for_sure, huxx.ho3 and more in your feed\nContent: Facebook@media all and (max-width: 480px){*[class].ib_t{min-width:100%!important}*[class].ib_row{display:block!important}*[class].ib_ext{display:block!important;padding:10px 0 5px;vertical-align:top!i...\n\nEmail 2:\nFrom: \"Instagram\" <notification@priority.instagram.com>\nSubject: thop_talks, catch up on moments that you've missed\nContent: Facebook@media all and (max-width: 480px){*[class].ib_t{min-width:100%!important}*[class].ib_row{display:block!important}*[class].ib_ext{display:block!important;padding:10px 0 5px;vertical-align:top!i..."
     },
     {
         "role": "user",
-        "content": "Hey jarvis."
+        "content": "Hey can you read out my recent email?"
     },
     {
         "role": "assistant",
-        "content": "Hello, how can I help you?"
+        "content": "You have 2 recent email(s). \n\nEmail 1:\nFrom: \"Instagram\" <follow-suggestions@mail.instagram.com>\nSubject: thop_talks, see notlucas_for_sure, huxx.ho3 and more in your feed\nContent: Facebook&nbsp;&nbsp;&nbsp;&nbsp;New people to discoverSuggested accounts based on your interests: notlucas_for_sure, huxx.ho3, and 4 others.Open&nbsp;Instagram&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sugge...\n\nEmail 2:\nFrom: \"Instagram\" <notification@priority.instagram.com>\nSubject: thop_talks, catch up on moments that you've missed\nContent: Facebook&nbsp;anna.konidala, abhyankkar and others posted something new.&nbsp;&nbsp;&nbsp;Catch up on Instagram anna.konidala, abhyankkar and others posted something new.Open&nbsp;Instagram&nbsp;&nbsp..."
     },
     {
         "role": "user",
-        "content": "what's my last recent email"
+        "content": "Hey jarvis can you read out my recent emails?"
     },
     {
         "role": "user",
-        "content": "read my emails"
-    },
-    {
-        "role": "user",
-        "content": "how are you"
-    },
-    {
-        "role": "user",
-        "content": "tell me a joke"
-    },
-    {
-        "role": "user",
-        "content": "open chrome"
-    },
-    {
-        "role": "user",
-        "content": "check battery status"
-    },
-    {
-        "role": "user",
-        "content": "what is the weather"
-    },
-    {
-        "role": "user",
-        "content": "search wikipedia for python"
-    },
-    {
-        "role": "user",
-        "content": "google search for news"
-    },
-    {
-        "role": "user",
-        "content": "play music"
-    },
-    {
-        "role": "user",
-        "content": "Hey jarvis."
+        "content": "Hey jarvis can you read out my recent emails?"
     },
     {
         "role": "assistant",
-        "content": "Hello, how can I help you?"
-    },
-    {
-        "role": "user",
-        "content": "How can i help you?"
+        "content": "You have 2 recent email(s). \n\nEmail 1:\nFrom: RAM SAI <mycareer02life@gmail.com>\nSubject: Hey developer of Jarvis voice agent for desktop assistance\nContent: I am writing to reach out and let you know that I believe the product you are currently developing is truly worthy. I am impressed with the work being done and wanted to share my positive feedback.\n\nEmail 2:\nFrom: \"Instagram\" <follow-suggestions@mail.instagram.com>\nSubject: thop_talks, see notlucas_for_sure, huxx.ho3 and more in your feed\nContent: Facebook&nbsp;&nbsp;&nbsp;&nbsp;New people to discoverSuggested accounts based on your interests: notlucas_for_sure, huxx.ho3, and 4 others.Open&nbsp;Instagram&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sugge..."
     },
     {
         "role": "assistant",
-        "content": "I'm here to assist you with any questions or tasks you may have."
+        "content": "You have 2 recent email(s). \n\nEmail 1:\nFrom: RAM SAI <mycareer02life@gmail.com>\nSubject: Hey developer of Jarvis voice agent for desktop assistance\nContent: I am writing to reach out and let you know that I believe the product you are currently developing is truly worthy. I am impressed with the work being done and wanted to share my positive feedback.\n\nEmail 2:\nFrom: \"Instagram\" <follow-suggestions@mail.instagram.com>\nSubject: thop_talks, see notlucas_for_sure, huxx.ho3 and more in your feed\nContent: Facebook&nbsp;&nbsp;&nbsp;&nbsp;New people to discoverSuggested accounts based on your interests: notlucas_for_sure, huxx.ho3, and 4 others.Open&nbsp;Instagram&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sugge..."
     },
     {
         "role": "user",
-        "content": "What is my recent email?"
+        "content": "Hey can you read out my recent emails?"
     },
     {
         "role": "user",
-        "content": "Exit jarvis."
+        "content": "You have to recent emails."
     },
     {
         "role": "assistant",
-        "content": "Failed to execute: exit. Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Hey jarvis."
+        "content": "You have 2 recent email(s). \n\nEmail 1:\nFrom: RAM SAI <mycareer02life@gmail.com>\nSubject: Hey developer of Jarvis voice agent for desktop assistance\nContent: I am writing to reach out and let you know that I believe the product you are currently developing is truly worthy. I am impressed with the work being done and wanted to share my positive feedback.\n\nEmail 2:\nFrom: \"Instagram\" <follow-suggestions@mail.instagram.com>\nSubject: thop_talks, see notlucas_for_sure, huxx.ho3 and more in your feed\nContent: Facebook&nbsp;&nbsp;&nbsp;&nbsp;New people to discoverSuggested accounts based on your interests: notlucas_for_sure, huxx.ho3, and 4 others.Open&nbsp;Instagram&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sugge..."
     },
     {
         "role": "assistant",
-        "content": "Hello, how can I help you?"
+        "content": "You have 2 recent email(s). \n\nEmail 1:\nFrom: RAM SAI <mycareer02life@gmail.com>\nSubject: Hey developer of Jarvis voice agent for desktop assistance\nContent: I am writing to reach out and let you know that I believe the product you are currently developing is truly worthy. I am impressed with the work being done and wanted to share my positive feedback.\n\nEmail 2:\nFrom: \"Instagram\" <follow-suggestions@mail.instagram.com>\nSubject: thop_talks, see notlucas_for_sure, huxx.ho3 and more in your feed\nContent: Facebook&nbsp;&nbsp;&nbsp;&nbsp;New people to discoverSuggested accounts based on your interests: notlucas_for_sure, huxx.ho3, and 4 others.Open&nbsp;Instagram&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sugge..."
     },
     {
         "role": "user",
-        "content": "Hello how can i help you?"
+        "content": "Hey jarvis can you read out my recent emails?"
+    },
+    {
+        "role": "user",
+        "content": "Id."
     },
     {
         "role": "assistant",
-        "content": "I'm here to assist you with any questions or tasks you may have."
+        "content": "You have 2 recent email(s). \n\nEmail 1:\nFrom: RAM SAI <mycareer02life@gmail.com>\nSubject: Hey developer of Jarvis voice agent for desktop assistance\nContent: I am writing to reach out and let you know that I believe the product you are currently developing is truly worthy. I am impressed with the work being done and wanted to share my positive feedback.\n\nEmail 2:\nFrom: \"Instagram\" <follow-suggestions@mail.instagram.com>\nSubject: thop_talks, see notlucas_for_sure, huxx.ho3 and more in your feed\nContent: Facebook&nbsp;&nbsp;&nbsp;&nbsp;New people to discoverSuggested accounts based on your interests: notlucas_for_sure, huxx.ho3, and 4 others.Open&nbsp;Instagram&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sugge..."
     },
     {
         "role": "user",
-        "content": "What is my last recent email?"
-    },
-    {
-        "role": "user",
-        "content": "Thank you jarvis."
+        "content": "Can you read out my last email?"
     },
     {
         "role": "assistant",
-        "content": "You're welcome."
+        "content": "You have 2 recent email(s). \n\nEmail 1:\nFrom: RAM SAI <mycareer02life@gmail.com>\nSubject: Hey developer of Jarvis voice agent for desktop assistance\nContent: I am writing to reach out and let you know that I believe the product you are currently developing is truly worthy. I am impressed with the work being done and wanted to share my positive feedback.\n\nEmail 2:\nFrom: \"Instagram\" <follow-suggestions@mail.instagram.com>\nSubject: thop_talks, see notlucas_for_sure, huxx.ho3 and more in your feed\nContent: Facebook&nbsp;&nbsp;&nbsp;&nbsp;New people to discoverSuggested accounts based on your interests: notlucas_for_sure, huxx.ho3, and 4 others.Open&nbsp;Instagram&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sugge..."
     },
     {
         "role": "user",
-        "content": "Hey jarvis can you send the email?"
+        "content": "Hey can you send email?"
     },
     {
         "role": "user",
-        "content": "Open youtube."
-    },
-    {
-        "role": "user",
-        "content": "Open youtube."
+        "content": "Hey ram i have just check out your mail regarding my regarding you are saying that major which had buddy is being excellence in the product development thank you?"
     },
     {
         "role": "assistant",
-        "content": "Opened youtube website. Anything else I can help you with?"
+        "content": "Here is a draft email:\nTo: RAM SAI <mycareer02life@gmail.com>\nSubject: Re: Hey developer of Jarvis voice agent for desktop assistance\nDear Ram,\nI have just checked out your mail regarding my product development. You mentioned that the major aspect which had impressed you is being excellent in the product development. Thank you for your kind words and appreciation.\nBest regards,\n[Your Name]"
     },
     {
         "role": "user",
-        "content": "Write a mail."
+        "content": "Hey send email."
+    },
+    {
+        "role": "user",
+        "content": "Thank you for your appreciation regarding my product development."
     },
     {
         "role": "assistant",
-        "content": "Unknown command: content (email). Anything else I can help you with?"
-    },
-    {
-        "role": "user",
-        "content": "Send email."
+        "content": "Email sent:\nTo: RAM SAI <mycareer02life@gmail.com>\nSubject: Re: Hey developer of Jarvis voice agent for desktop assistance\nDear Ram,\nThank you for your appreciation regarding my product development.\nBest regards,\n[Your Name]"
     }
 ]

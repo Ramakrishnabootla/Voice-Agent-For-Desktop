@@ -74,8 +74,9 @@ def MainExecution(Query: str):
                 TTS(Answer)
                 print("TTS called")
                 messages.append({'role': 'assistant', 'content': Answer})
-                with open('ChatLog.json', 'w') as f:
-                    json.dump(messages, f, indent=4)
+                with lock:
+                    with open('ChatLog.json', 'w') as f:
+                        json.dump(messages, f, indent=4)
             else:
                 print("Realtime query")
                 state = 'Searching...'
@@ -85,23 +86,25 @@ def MainExecution(Query: str):
                 TTS(Answer)
                 print("Realtime TTS called")
                 messages.append({'role': 'assistant', 'content': Answer})
-                with open('ChatLog.json', 'w') as f:
-                    json.dump(messages, f, indent=4)
-        elif 'open webcam' in Decision:
+                with lock:
+                    with open('ChatLog.json', 'w') as f:
+                        json.dump(messages, f, indent=4)
+        elif any('open webcam' in d for d in Decision):
             print("Opening webcam")
             python_call_to_start_video()
             print('Video Started')
             WEBCAM = True
-        elif 'close webcam' in Decision:
+        elif any('close webcam' in d for d in Decision):
             print("Closing webcam")
             print('Video Stopped')
             python_call_to_stop_video()
             WEBCAM = False
-        elif 'google search' in Decision:
+        elif any('google search' in d for d in Decision):
             print("Google search query")
             # Extract the search topic from the decision
-            if 'google search (' in Decision and ')' in Decision:
-                topic = Decision.split('google search (')[1].split(')')[0]
+            decision_str = next((d for d in Decision if 'google search' in d), '')
+            if 'google search (' in decision_str and ')' in decision_str:
+                topic = decision_str.split('google search (')[1].split(')')[0]
             else:
                 topic = Query  # fallback to original query
             print(f"Searching for: {topic}")
@@ -113,8 +116,9 @@ def MainExecution(Query: str):
             TTS(Answer)
             print("Search TTS called")
             messages.append({'role': 'assistant', 'content': Answer})
-            with open('ChatLog.json', 'w') as f:
-                json.dump(messages, f, indent=4)
+            with lock:
+                with open('ChatLog.json', 'w') as f:
+                    json.dump(messages, f, indent=4)
         elif 'send email' in Decision:
             print("Send email query")
             state = 'Sending Email...'
@@ -147,15 +151,21 @@ def MainExecution(Query: str):
             restart_thread.start()
             working.append(restart_thread)
             print("Restart initiated")
-        elif 'read emails' in Decision:
+        elif any('read emails' in d for d in Decision):
             print("Read emails query")
             state = 'Reading Emails...'
             # Run email reading in a separate thread
-            email_read_thread = threading.Thread(target=lambda: messages.append({'role': 'assistant', 'content': read_recent_emails()}))
+            def read_and_append():
+                result = read_recent_emails()
+                messages.append({'role': 'assistant', 'content': result})
+                with lock:
+                    with open('ChatLog.json', 'w') as f:
+                        json.dump(messages, f, indent=4)
+            email_read_thread = threading.Thread(target=read_and_append)
             email_read_thread.start()
             working.append(email_read_thread)
             print("Email reading initiated")
-        elif 'create gui' in Decision:
+        elif any('create gui' in d for d in Decision):
             print("Create GUI query")
             state = 'Opening GUI...'
             # Run GUI in a separate thread
@@ -163,7 +173,7 @@ def MainExecution(Query: str):
             gui_thread.start()
             working.append(gui_thread)
             print("GUI creation initiated")
-        elif 'get location info' in Decision:
+        elif any('get location info' in d for d in Decision):
             print("Get location info query")
             state = 'Getting Location...'
             # Run location info in a separate thread
@@ -171,7 +181,7 @@ def MainExecution(Query: str):
             location_thread.start()
             working.append(location_thread)
             print("Location info initiated")
-        elif 'get weather' in Decision:
+        elif any('get weather' in d for d in Decision):
             print("Get weather query")
             state = 'Getting Weather...'
             # Run weather info in a separate thread
@@ -186,8 +196,9 @@ def MainExecution(Query: str):
             print(f"Automation response: {response}")
             state = 'Answering...'
             messages.append({'role': 'assistant', 'content': response})
-            with open('ChatLog.json', 'w') as f:
-                json.dump(messages, f, indent=4)
+            with lock:
+                with open('ChatLog.json', 'w') as f:
+                    json.dump(messages, f, indent=4)
             TTS(response)
             print("Automation TTS called")
     finally:

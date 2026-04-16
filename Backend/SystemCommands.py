@@ -123,26 +123,56 @@ def read_recent_emails():
             # Parse the email
             email_message = email.message_from_bytes(raw_email)
 
-            # Extract sender, subject, and body preview
+            # Extract sender, subject, and body
             sender = email_message['From']
             subject = email_message['Subject'] or 'No Subject'
 
-            # Get body preview
+            # Get body content - prefer plain text, clean up HTML
             body = ""
             if email_message.is_multipart():
+                # First try to get plain text
                 for part in email_message.walk():
                     if part.get_content_type() == "text/plain":
                         body = part.get_payload(decode=True).decode('utf-8', errors='ignore')
                         break
+                # If no plain text, try to extract from HTML
+                if not body.strip():
+                    for part in email_message.walk():
+                        if part.get_content_type() == "text/html":
+                            body = part.get_payload(decode=True).decode('utf-8', errors='ignore')
+                            # Remove HTML tags and CSS
+                            import re
+                            body = re.sub(r'<style[^>]*>.*?</style>', '', body, flags=re.DOTALL | re.IGNORECASE)
+                            body = re.sub(r'<script[^>]*>.*?</script>', '', body, flags=re.DOTALL | re.IGNORECASE)
+                            body = re.sub('<[^<]+?>', '', body)
+                            break
             else:
                 body = email_message.get_payload(decode=True).decode('utf-8', errors='ignore')
+                # Remove HTML tags if present
+                if '<' in body and '>' in body:
+                    import re
+                    body = re.sub(r'<style[^>]*>.*?</style>', '', body, flags=re.DOTALL | re.IGNORECASE)
+                    body = re.sub(r'<script[^>]*>.*?</script>', '', body, flags=re.DOTALL | re.IGNORECASE)
+                    body = re.sub('<[^<]+?>', '', body)
 
-            # Clean up body (remove newlines, limit length)
-            body_preview = body.replace('\n', ' ').replace('\r', ' ').strip()
-            if len(body_preview) > 100:
-                body_preview = body_preview[:100] + "..."
+            # Clean up body (remove excessive newlines and whitespace)
+            body_clean = ' '.join(body.split())
 
-            email_info = f"From: {sender}\nSubject: {subject}\nPreview: {body_preview}"
+            # Check if content looks like code/CSS (contains @ signs, curly braces, typical CSS patterns)
+            has_code_markers = any(marker in body_clean[:500] for marker in ['@media', '{*[', '!important', ':{}', 'Font-family'])
+
+            # Get a meaningful preview (up to 200 characters)
+            body_preview = body_clean.strip()
+            if len(body_preview) > 200:
+                body_preview = body_preview[:200] + "..."
+
+            # Only show preview if it has meaningful content and isn't code
+            if body_preview and not body_preview.startswith('<!DOCTYPE') and not has_code_markers:
+                email_info = f"From: {sender}\nSubject: {subject}\nContent: {body_preview}"
+            else:
+                # If no readable content, just show subject (which is important)
+                email_info = f"From: {sender}\nSubject: {subject}"
+
             emails_info.append(email_info)
 
         # Close the connection
@@ -150,12 +180,53 @@ def read_recent_emails():
 
         # Format and speak the results
         if emails_info:
-            full_message = f"I found {len(emails_info)} recent email(s):\n\n"
-            for i, info in enumerate(emails_info, 1):
-                full_message += f"Email {i}:\n{info}\n\n"
+            # Build TTS messages for each email individually to avoid truncation
+            print("="*60)
+            print("READING EMAILS:")
+            print("="*60)
 
+            # First, announce how many emails
+            intro = f"You have {len(emails_info)} recent email"
+            intro += "s" if len(emails_info) > 1 else ""
+            print(f"\n[TTS] {intro}")
+            try:
+                TTS(intro)
+            except Exception as e:
+                print(f"[ERROR] TTS failed for intro: {str(e)}")
+
+            # Read each email separately to avoid TTS truncation
+            for i, info in enumerate(emails_info, 1):
+                lines = info.split('\n')
+                sender_full = lines[0].replace('From: ', '') if len(lines) > 0 else "Unknown"
+                subject = lines[1].replace('Subject: ', '') if len(lines) > 1 else "No subject"
+                content = lines[2].replace('Content: ', '') if len(lines) > 2 else ""
+
+                # Extract just the name from email (remove email address to avoid dot truncation)
+                # e.g., "Instagram" <notification@priority.instagram.com> -> Instagram
+                import re
+                name_match = re.search(r'^"([^"]+)"', sender_full)
+                sender_name = name_match.group(1) if name_match else sender_full.split('<')[0].strip() if '<' in sender_full else sender_full
+
+                # Create individual email message with FULL subject
+                # Use "colon" instead of periods where possible to avoid TTS truncation
+                email_msg = f"Email {i}, from {sender_name}: {subject}"
+                if content and content != "No content":
+                    email_msg += f" - {content}"
+
+                print(f"\n[TTS Email {i}] {email_msg}")
+                try:
+                    TTS(email_msg)
+                except Exception as e:
+                    print(f"[ERROR] TTS failed for email {i}: {str(e)}")
+
+            # Print the structured format for GUI
+            full_message = f"You have {len(emails_info)} recent email(s). "
+            for i, info in enumerate(emails_info, 1):
+                full_message += f"\n\nEmail {i}:\n{info}"
+
+            print("\n" + "="*60)
             print(full_message)
-            TTS(full_message)
+            print("="*60)
             return full_message
         else:
             message = "No emails could be read."
